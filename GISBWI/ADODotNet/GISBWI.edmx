@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="GISBWIModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="GISBWIModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="GISBWIModel.Store.Admin" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Artikel" EntityType="GISBWIModel.Store.Artikel" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="JenisArtikel" EntityType="GISBWIModel.Store.JenisArtikel" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Artikel_Admin" Association="GISBWIModel.Store.FK_Artikel_Admin">
+            <End Role="Admin" EntitySet="Admin" />
+            <End Role="Artikel" EntitySet="Artikel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Artikel_Jenis_Artikel" Association="GISBWIModel.Store.FK_Artikel_Jenis_Artikel">
+            <End Role="JenisArtikel" EntitySet="JenisArtikel" />
+            <End Role="Artikel" EntitySet="Artikel" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="idAdmin" />
+          </Key>
+          <Property Name="idAdmin" Type="int" Nullable="false" />
+          <Property Name="nama" Type="varchar" MaxLength="45" />
+          <Property Name="email" Type="varchar" MaxLength="45" />
+          <Property Name="username" Type="varchar" MaxLength="45" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+          <Property Name="status" Type="int" />
+        </EntityType>
+        <EntityType Name="Artikel">
+          <Key>
+            <PropertyRef Name="idArtikel" />
+          </Key>
+          <Property Name="idArtikel" Type="int" Nullable="false" />
+          <Property Name="judul" Type="varchar" MaxLength="50" />
+          <Property Name="isi" Type="nvarchar(max)" />
+          <Property Name="tanggalBuat" Type="datetime" />
+          <Property Name="status" Type="int" />
+          <Property Name="keterangan" Type="nvarchar(max)" />
+          <Property Name="admin_idadmin" Type="int" />
+          <Property Name="jenis_artikel_idJenisArtikel" Type="int" />
+        </EntityType>
+        <EntityType Name="JenisArtikel">
+          <Key>
+            <PropertyRef Name="idJenisArtikel" />
+          </Key>
+          <Property Name="idJenisArtikel" Type="int" Nullable="false" />
+          <Property Name="nama" Type="varchar" MaxLength="50" />
+          <Property Name="status" Type="int" />
+          <Property Name="keterangan" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_Artikel_Admin">
+          <End Role="Admin" Type="GISBWIModel.Store.Admin" Multiplicity="0..1" />
+          <End Role="Artikel" Type="GISBWIModel.Store.Artikel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="idAdmin" />
+            </Principal>
+            <Dependent Role="Artikel">
+              <PropertyRef Name="admin_idadmin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Artikel_Jenis_Artikel">
+          <End Role="JenisArtikel" Type="GISBWIModel.Store.JenisArtikel" Multiplicity="0..1" />
+          <End Role="Artikel" Type="GISBWIModel.Store.Artikel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JenisArtikel">
+              <PropertyRef Name="idJenisArtikel" />
+            </Principal>
+            <Dependent Role="Artikel">
+              <PropertyRef Name="jenis_artikel_idJenisArtikel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GISBWIModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="GISBWIEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admins" EntityType="GISBWIModel.Admin" />
+          <EntitySet Name="Artikels" EntityType="GISBWIModel.Artikel" />
+          <EntitySet Name="JenisArtikels" EntityType="GISBWIModel.JenisArtikel" />
+          <AssociationSet Name="FK_Artikel_Admin" Association="GISBWIModel.FK_Artikel_Admin">
+            <End Role="Admin" EntitySet="Admins" />
+            <End Role="Artikel" EntitySet="Artikels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Artikel_Jenis_Artikel" Association="GISBWIModel.FK_Artikel_Jenis_Artikel">
+            <End Role="JenisArtikel" EntitySet="JenisArtikels" />
+            <End Role="Artikel" EntitySet="Artikels" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="idAdmin" />
+          </Key>
+          <Property Name="idAdmin" Type="Int32" Nullable="false" />
+          <Property Name="nama" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="email" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="username" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="password" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="status" Type="Int32" />
+          <NavigationProperty Name="Artikels" Relationship="GISBWIModel.FK_Artikel_Admin" FromRole="Admin" ToRole="Artikel" />
+        </EntityType>
+        <EntityType Name="Artikel">
+          <Key>
+            <PropertyRef Name="idArtikel" />
+          </Key>
+          <Property Name="idArtikel" Type="Int32" Nullable="false" />
+          <Property Name="judul" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="isi" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="tanggalBuat" Type="DateTime" Precision="3" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="keterangan" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="admin_idadmin" Type="Int32" />
+          <Property Name="jenis_artikel_idJenisArtikel" Type="Int32" />
+          <NavigationProperty Name="Admin" Relationship="GISBWIModel.FK_Artikel_Admin" FromRole="Artikel" ToRole="Admin" />
+          <NavigationProperty Name="JenisArtikel" Relationship="GISBWIModel.FK_Artikel_Jenis_Artikel" FromRole="Artikel" ToRole="JenisArtikel" />
+        </EntityType>
+        <EntityType Name="JenisArtikel">
+          <Key>
+            <PropertyRef Name="idJenisArtikel" />
+          </Key>
+          <Property Name="idJenisArtikel" Type="Int32" Nullable="false" />
+          <Property Name="nama" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="keterangan" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Artikels" Relationship="GISBWIModel.FK_Artikel_Jenis_Artikel" FromRole="JenisArtikel" ToRole="Artikel" />
+        </EntityType>
+        <Association Name="FK_Artikel_Admin">
+          <End Role="Admin" Type="GISBWIModel.Admin" Multiplicity="0..1" />
+          <End Role="Artikel" Type="GISBWIModel.Artikel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="idAdmin" />
+            </Principal>
+            <Dependent Role="Artikel">
+              <PropertyRef Name="admin_idadmin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Artikel_Jenis_Artikel">
+          <End Role="JenisArtikel" Type="GISBWIModel.JenisArtikel" Multiplicity="0..1" />
+          <End Role="Artikel" Type="GISBWIModel.Artikel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JenisArtikel">
+              <PropertyRef Name="idJenisArtikel" />
+            </Principal>
+            <Dependent Role="Artikel">
+              <PropertyRef Name="jenis_artikel_idJenisArtikel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GISBWIModelStoreContainer" CdmEntityContainer="GISBWIEntities">
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="GISBWIModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="idAdmin" ColumnName="idAdmin" />
+                <ScalarProperty Name="nama" ColumnName="nama" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Artikels">
+            <EntityTypeMapping TypeName="GISBWIModel.Artikel">
+              <MappingFragment StoreEntitySet="Artikel">
+                <ScalarProperty Name="idArtikel" ColumnName="idArtikel" />
+                <ScalarProperty Name="judul" ColumnName="judul" />
+                <ScalarProperty Name="isi" ColumnName="isi" />
+                <ScalarProperty Name="tanggalBuat" ColumnName="tanggalBuat" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="keterangan" ColumnName="keterangan" />
+                <ScalarProperty Name="admin_idadmin" ColumnName="admin_idadmin" />
+                <ScalarProperty Name="jenis_artikel_idJenisArtikel" ColumnName="jenis_artikel_idJenisArtikel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JenisArtikels">
+            <EntityTypeMapping TypeName="GISBWIModel.JenisArtikel">
+              <MappingFragment StoreEntitySet="JenisArtikel">
+                <ScalarProperty Name="idJenisArtikel" ColumnName="idJenisArtikel" />
+                <ScalarProperty Name="nama" ColumnName="nama" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="keterangan" ColumnName="keterangan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
