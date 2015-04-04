@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GISBWIModelStoreContainer" CdmEntityContainer="ArtikelEntities">
+    <EntitySetMapping Name="Artikels">
+      <EntityTypeMapping TypeName="GISBWIModel.Artikel">
+        <MappingFragment StoreEntitySet="Artikel">
+          <ScalarProperty Name="idArtikel" ColumnName="idArtikel" />
+          <ScalarProperty Name="judul" ColumnName="judul" />
+          <ScalarProperty Name="isi" ColumnName="isi" />
+          <ScalarProperty Name="tanggalBuat" ColumnName="tanggalBuat" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="keterangan" ColumnName="keterangan" />
+          <ScalarProperty Name="admin_idadmin" ColumnName="admin_idadmin" />
+          <ScalarProperty Name="jenis_artikel_idJenisArtikel" ColumnName="jenis_artikel_idJenisArtikel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

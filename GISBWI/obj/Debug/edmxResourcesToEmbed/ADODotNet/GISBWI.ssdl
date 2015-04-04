@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GISBWIModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="GISBWIModelStoreContainer">
+    <EntitySet Name="Admin" EntityType="GISBWIModel.Store.Admin" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Artikel" EntityType="GISBWIModel.Store.Artikel" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="JenisArtikel" EntityType="GISBWIModel.Store.JenisArtikel" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Artikel_Admin" Association="GISBWIModel.Store.FK_Artikel_Admin">
+      <End Role="Admin" EntitySet="Admin" />
+      <End Role="Artikel" EntitySet="Artikel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Artikel_Jenis_Artikel" Association="GISBWIModel.Store.FK_Artikel_Jenis_Artikel">
+      <End Role="JenisArtikel" EntitySet="JenisArtikel" />
+      <End Role="Artikel" EntitySet="Artikel" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="idAdmin" />
+    </Key>
+    <Property Name="idAdmin" Type="int" Nullable="false" />
+    <Property Name="nama" Type="varchar" MaxLength="45" />
+    <Property Name="email" Type="varchar" MaxLength="45" />
+    <Property Name="username" Type="varchar" MaxLength="45" />
+    <Property Name="password" Type="varchar" MaxLength="50" />
+    <Property Name="status" Type="int" />
+  </EntityType>
+  <EntityType Name="Artikel">
+    <Key>
+      <PropertyRef Name="idArtikel" />
+    </Key>
+    <Property Name="idArtikel" Type="int" Nullable="false" />
+    <Property Name="judul" Type="varchar" MaxLength="50" />
+    <Property Name="isi" Type="nvarchar(max)" />
+    <Property Name="tanggalBuat" Type="datetime" />
+    <Property Name="status" Type="int" />
+    <Property Name="keterangan" Type="nvarchar(max)" />
+    <Property Name="admin_idadmin" Type="int" />
+    <Property Name="jenis_artikel_idJenisArtikel" Type="int" />
+  </EntityType>
+  <EntityType Name="JenisArtikel">
+    <Key>
+      <PropertyRef Name="idJenisArtikel" />
+    </Key>
+    <Property Name="idJenisArtikel" Type="int" Nullable="false" />
+    <Property Name="nama" Type="varchar" MaxLength="50" />
+    <Property Name="status" Type="int" />
+    <Property Name="keterangan" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="FK_Artikel_Admin">
+    <End Role="Admin" Type="GISBWIModel.Store.Admin" Multiplicity="0..1" />
+    <End Role="Artikel" Type="GISBWIModel.Store.Artikel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin">
+        <PropertyRef Name="idAdmin" />
+      </Principal>
+      <Dependent Role="Artikel">
+        <PropertyRef Name="admin_idadmin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Artikel_Jenis_Artikel">
+    <End Role="JenisArtikel" Type="GISBWIModel.Store.JenisArtikel" Multiplicity="0..1" />
+    <End Role="Artikel" Type="GISBWIModel.Store.Artikel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JenisArtikel">
+        <PropertyRef Name="idJenisArtikel" />
+      </Principal>
+      <Dependent Role="Artikel">
+        <PropertyRef Name="jenis_artikel_idJenisArtikel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

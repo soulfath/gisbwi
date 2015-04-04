@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GISBWIModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="GISBWIEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admins" EntityType="GISBWIModel.Admin" />
+    <EntitySet Name="Artikels" EntityType="GISBWIModel.Artikel" />
+    <EntitySet Name="JenisArtikels" EntityType="GISBWIModel.JenisArtikel" />
+    <AssociationSet Name="FK_Artikel_Admin" Association="GISBWIModel.FK_Artikel_Admin">
+      <End Role="Admin" EntitySet="Admins" />
+      <End Role="Artikel" EntitySet="Artikels" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Artikel_Jenis_Artikel" Association="GISBWIModel.FK_Artikel_Jenis_Artikel">
+      <End Role="JenisArtikel" EntitySet="JenisArtikels" />
+      <End Role="Artikel" EntitySet="Artikels" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="idAdmin" />
+    </Key>
+    <Property Name="idAdmin" Type="Int32" Nullable="false" />
+    <Property Name="nama" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="email" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="username" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="password" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="status" Type="Int32" />
+    <NavigationProperty Name="Artikels" Relationship="GISBWIModel.FK_Artikel_Admin" FromRole="Admin" ToRole="Artikel" />
+  </EntityType>
+  <EntityType Name="Artikel">
+    <Key>
+      <PropertyRef Name="idArtikel" />
+    </Key>
+    <Property Name="idArtikel" Type="Int32" Nullable="false" />
+    <Property Name="judul" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="isi" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="tanggalBuat" Type="DateTime" Precision="3" />
+    <Property Name="status" Type="Int32" />
+    <Property Name="keterangan" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="admin_idadmin" Type="Int32" />
+    <Property Name="jenis_artikel_idJenisArtikel" Type="Int32" />
+    <NavigationProperty Name="Admin" Relationship="GISBWIModel.FK_Artikel_Admin" FromRole="Artikel" ToRole="Admin" />
+    <NavigationProperty Name="JenisArtikel" Relationship="GISBWIModel.FK_Artikel_Jenis_Artikel" FromRole="Artikel" ToRole="JenisArtikel" />
+  </EntityType>
+  <EntityType Name="JenisArtikel">
+    <Key>
+      <PropertyRef Name="idJenisArtikel" />
+    </Key>
+    <Property Name="idJenisArtikel" Type="Int32" Nullable="false" />
+    <Property Name="nama" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="status" Type="Int32" />
+    <Property Name="keterangan" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Artikels" Relationship="GISBWIModel.FK_Artikel_Jenis_Artikel" FromRole="JenisArtikel" ToRole="Artikel" />
+  </EntityType>
+  <Association Name="FK_Artikel_Admin">
+    <End Role="Admin" Type="GISBWIModel.Admin" Multiplicity="0..1" />
+    <End Role="Artikel" Type="GISBWIModel.Artikel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin">
+        <PropertyRef Name="idAdmin" />
+      </Principal>
+      <Dependent Role="Artikel">
+        <PropertyRef Name="admin_idadmin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Artikel_Jenis_Artikel">
+    <End Role="JenisArtikel" Type="GISBWIModel.JenisArtikel" Multiplicity="0..1" />
+    <End Role="Artikel" Type="GISBWIModel.Artikel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JenisArtikel">
+        <PropertyRef Name="idJenisArtikel" />
+      </Principal>
+      <Dependent Role="Artikel">
+        <PropertyRef Name="jenis_artikel_idJenisArtikel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
