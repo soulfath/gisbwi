@@ -1,0 +1,22 @@
+﻿@model IEnumerable<GISBWI.Models.ImagesViewModel>
+
+@{
+    ViewBag.Title = "uploadPartial";
+    Layout = "~/Views/Shared/_BackEndLayout.cshtml";
+}
+
+@foreach (var image in Model)
+{
+    <a href="#" class="returnImage" data-url="@Request.Url.GetLeftPart(UriPartial.Authority)@image.url">
+        <img src="@image.url" alt="Hejsan" id="#image" data-source="@image.url" width="200" height="200"/>
+    </a>
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".returnImage").click("click", function (e) {
+            var urlImage = $(this).attr("data-url");
+            window.opener.updateValue("cke_114_textInput", urlImage);
+            window.close();
+        });
+    });
+</script>

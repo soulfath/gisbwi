@@ -1,0 +1,153 @@
+﻿@model GISBWI.ADODotNet.Artikel
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_BackEndLayout.cshtml";
+}
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+	<!-- Main bar -->
+  	<div class="mainbar">
+      
+	    <!-- Page heading -->
+	    <div class="page-head">
+        <!-- Page heading -->
+	      <h2 class="pull-left"><i class="fa fa-file-o"></i> Edit Artikel</h2>
+        </h2>
+
+
+        <!-- Breadcrumb -->
+        <div class="bread-crumb pull-right">
+          <a href="index.html"><i class="fa fa-home"></i> Home</a> 
+          <!-- Divider -->
+          <span class="divider">/</span> 
+          <a href="#" class="bread-current">Edit Artikel</a>
+        </div>
+
+        <div class="clearfix"></div>
+
+	    </div>
+	    <!-- Page heading ends -->
+
+
+
+	    <!-- Matter -->
+
+	    <div class="matter">
+        <div class="container">
+
+          <div class="row">
+
+            <div class="col-md-12">
+
+
+              <div class="widget wgreen">
+                
+                <div class="widget-head">
+                  <div class="pull-left">Forms</div>
+                  <div class="widget-icons pull-right">
+                    <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a> 
+                    <a href="#" class="wclose"><i class="fa fa-times"></i></a>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+
+                <div class="widget-content">
+                  <div class="padd">
+
+                    <br />
+                    <!-- Form starts.  -->
+                     @using (Html.BeginForm("Edit", "Artikel", FormMethod.Post, new { @class="form-horizontal" }))
+{
+    @Html.ValidationSummary(true)
+    <legend></legend>
+    <fieldset>
+        <div class="form-group">
+            @Html.LabelFor(model => model.judul, new { @class="col-lg-2 control-label" })
+            <div class="col-lg-5">
+                @Html.TextBoxFor(model=>model.judul,new {@class="form-control"})
+                @Html.ValidationMessageFor(model => model.judul)
+            </div>
+        </div>
+                              
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.isi, new { @class="col-lg-2 control-label" })
+            <div class="col-lg-8">
+                   @Html.TextAreaFor(model => model.isi, new {@name="editor1" , @class = "ckeditor form-control", @id = "editor1" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.status, new { @class="col-lg-2 control-label" })
+            <div class="col-lg-5">
+                @Html.TextBoxFor(model=>model.status,new {@class="form-control"})
+                @Html.ValidationMessageFor(model => model.status)
+            </div>
+        </div>
+
+         <div class="form-group">
+            @Html.LabelFor(model => model.keterangan, new { @class="col-lg-2 control-label" })
+            <div class="col-lg-5">
+                @Html.TextBoxFor(model=>model.keterangan,new {@class="form-control"})
+                @Html.ValidationMessageFor(model => model.keterangan)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.admin_idadmin, new { @class="col-lg-2 control-label" })
+            <div class="col-lg-5">
+                @Html.DropDownList("admin_idadmin",String.Empty)
+                @Html.ValidationMessageFor(model => model.admin_idadmin)
+            </div>
+        </div>
+
+         <div class="form-group">
+            @Html.LabelFor(model => model.jenis_artikel_idJenisArtikel, new { @class="col-lg-2 control-label" })
+            <div class="col-lg-5">
+                @Html.DropDownList("jenis_artikel_idJenisArtikel",String.Empty)
+                @Html.ValidationMessageFor(model => model.jenis_artikel_idJenisArtikel)
+            </div>
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+                  </div>
+                </div>
+                  <div class="widget-foot">
+                    <!-- Footer goes here -->
+                  </div>
+              </div>  
+
+            </div>
+
+          </div>
+
+        </div>
+		  </div>
+
+		<!-- Matter ends -->
+
+    </div>
+<script type="text/javascript">
+    CKEDITOR.replace('editor1', {
+        filebrowserImageBrowseUrl: '/Artikel/UploadPartial',
+        filebrowserImageUploadUrl: '/Artikel/UploadNow'
+    });
+    function updateValue(id, value) {
+        // this gets called from the popup window and updates the field with a new value 
+        var jqueryObjectByClass = $(".cke_dialog_ui_input_text")[1];
+        jqueryObjectByClass.value = value;
+    }
+</script>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+}

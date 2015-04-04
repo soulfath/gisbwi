@@ -1,0 +1,92 @@
+﻿@model GISBWI.ADODotNet.Artikel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_BackEndLayout.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Artikel</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.idArtikel)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.idArtikel)
+            @Html.ValidationMessageFor(model => model.idArtikel)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.judul)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.judul)
+            @Html.ValidationMessageFor(model => model.judul)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.isi)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.isi)
+            @Html.ValidationMessageFor(model => model.isi)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.tanggalBuat)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.tanggalBuat)
+            @Html.ValidationMessageFor(model => model.tanggalBuat)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.status)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.status)
+            @Html.ValidationMessageFor(model => model.status)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.keterangan)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.keterangan)
+            @Html.ValidationMessageFor(model => model.keterangan)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.admin_idadmin, "Admin")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("admin_idadmin", String.Empty)
+            @Html.ValidationMessageFor(model => model.admin_idadmin)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.jenis_artikel_idJenisArtikel, "JenisArtikel")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("jenis_artikel_idJenisArtikel", String.Empty)
+            @Html.ValidationMessageFor(model => model.jenis_artikel_idJenisArtikel)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

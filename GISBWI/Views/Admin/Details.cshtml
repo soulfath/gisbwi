@@ -1,0 +1,58 @@
+﻿@model GISBWI.ADODotNet.Admin
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_BackEndLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Admin</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.idAdmin)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.idAdmin)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.nama)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.nama)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.email)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.username)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.username)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.password)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.password)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.status)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.status)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {  id=Model.idAdmin }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,141 @@
+﻿@model GISBWI.ADODotNet.Admin
+
+@{
+    ViewBag.Title = "Login";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+		<meta charset="utf-8">
+		<!-- Title here -->
+		<title>MacBeath</title>
+		<!-- Description, Keywords and Author -->
+		<meta name="description" content="Your description">
+		<meta name="keywords" content="Your,Keywords">
+		<meta name="author" content="ResponsiveWebInc">
+		
+		<meta name="viewport" content="width=device-width">
+		 @Styles.Render("~/Content/FrontEnd/css")
+         @Scripts.Render("~/bundles/modernizr")
+		 <script src="~/Scripts/respond.min.js"></script>
+    <!-- Styles -->
+		<!-- Flex slider -->
+		
+		<!-- Favicon -->
+	    <!-- ==========================
+    	    Favicons 
+        =========================== -->
+        <link rel="shortcut icon" href="~/icons/favicon.ico">
+	    <link rel="apple-touch-icon" href="~/icons/apple-touch-icon.png">
+	    <link rel="apple-touch-icon" sizes="72x72" href="~/icons/apple-touch-icon-72x72.png">
+	    <link rel="apple-touch-icon" sizes="114x114" href="~/icons/apple-touch-icon-114x114.png">
+    
+        <!-- ==========================
+    	    Fonts 
+        =========================== -->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    
+	</head>
+	
+   <body class="color-blue">
+	
+        
+    <!-- ==========================
+    	FORMS - START 
+    =========================== -->
+	<section class="content-full bg-color-2">
+    	
+        <header class="navbar navbar-default navbar-static-top">
+            <div class="pull-left">
+                <a href="index.html" class="btn btn-primary btn-lg"><i class="fa fa-chevron-left"></i>Back to Homepage</a>
+            </div>
+        </header>
+    	
+    	<div class="container">
+        	<div class="forms-only">
+        		
+                        
+                            @using (Html.BeginForm())
+                            {
+                                @Html.ValidationSummary(true, "Terdapat Kesalahan");
+                             	    <h2>Sign in</h2>
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            <label for="email">Your email:<span>*</span></label>
+                                            <div class="input-group">
+                                  	            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                  	            <input type="text" class="form-control " placeholder="Your email:" name="username" value id="username" required>
+                                               @Html.ValidationMessageFor(u=> u.username)
+                                            </div>
+                                        </div>
+                                    </div>
+                        
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            <label for="password">Your password:<span>*</span></label>
+                                            <div class="input-group">
+                                  	            <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                                	            <input type="password" name="password" class="form-control " placeholder="Your password:" id="password" required>
+                                            @Html.ValidationMessageFor(u=> u.password)
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                              
+                                    <div class="pull-left">
+                                        <input type="submit" value="Log In" id="send" class="btn btn-primary" />
+                                        <i class="fa fa-check"></i>
+                                    </div>
+                        
+                                    <div class="pull-right">
+                       		            <a href="#" id="reset-password-toggle">Did you forget your password?</a>
+                                    </div>
+                            }
+
+                
+                <form id="reset-password">
+                    <fieldset>
+                    	<h3>Did you forget your password?</h3>
+                        
+                        <div class="row">
+                            <div class="form-group col-sm-12">
+                                <label for="email2">Your email:<span>*</span></label>
+                                <div class="input-group">
+                                  	<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                  	<input type="email" class="form-control " placeholder="Your email:" id="email2" required>
+                                </div>
+                            </div>
+                        </div>
+                                              
+                        <div class="pull-left">
+                            <button type="submit" id="send2" class="btn btn-primary"><i class="fa fa-check"></i>Reset Password</button>
+                        </div>
+                        
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </section>    
+    <!-- ==========================
+    	FORMS - END 
+    =========================== -->
+   
+      
+<!-- JS -->
+    <script src="~/Scripts/jquery.js"></script> <!-- jQuery -->
+    <script src="~/Scripts/bootstrap.min.js"></script> <!-- Bootstrap -->
+    <script src="~/Scripts/jquery-ui.min.js"></script> <!-- jQuery UI -->
+   	<!-- ==========================
+    	JS 
+    =========================== -->        
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=true"></script>
+	<script src="~/Scripts/FrontEnd/owl.carousel.js"></script>
+    <script src="~/Scripts/FrontEnd/isotope.pkgd.min.js"></script>
+    <script src="~/Scripts/FrontEnd/jquery.magnific-popup.min.js"></script>
+    <script src="~/Scripts/FrontEnd/creative-brands.js"></script>
+    <script src="~/Scripts/FrontEnd/color-switcher.js"></script>
+    <script src="~/Scripts/FrontEnd/custom.js"></script>
+</body>
+</html>

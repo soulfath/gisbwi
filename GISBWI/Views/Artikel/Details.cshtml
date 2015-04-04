@@ -1,0 +1,71 @@
+﻿@model GISBWI.ADODotNet.Artikel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_BackEndLayout.cshtml";
+}
+
+
+<fieldset>
+    <legend>Artikel</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.idArtikel)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.idArtikel)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.judul)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.judul)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.isi)
+    </div>
+    <div class="display-field">
+       @Html.Raw(@Html.DisplayTextFor(model => model.isi).ToHtmlString())
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.tanggalBuat)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.tanggalBuat)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.status)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.status)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.keterangan)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.keterangan)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Admin.nama)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Admin.nama)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.JenisArtikel.nama)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.JenisArtikel.nama)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.idArtikel }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
