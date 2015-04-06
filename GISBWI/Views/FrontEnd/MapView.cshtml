@@ -1,0 +1,24 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MapView</title>
+</head>
+<body>
+    <div>
+        <div id="parent" style="position: relative; width: 950px; height: 500px;">
+    <div id='myMap' style="position: relative; width: 950px; height: 500px;"></div>
+    <div id='resultDiv' class="resultsDiv" style="visibility: hidden; position: absolute; right: 0px; top: 0px; width: 300px;">
+        Click shape on map map to view layer properties.
+    <div id="closeinfo" class="resultsDiv" style="position: absolute; right: 0px; top: 0px; width: 3px;" onclick="CloseInfoHandler()">X </div>
+    </div>
+    @*<div> <input id="drawButton" type="button" value="DrawON/OFF" onclick="DrawFlagChange()"/> </div>*@
+</div>
+    </div>
+</body>
+</html>

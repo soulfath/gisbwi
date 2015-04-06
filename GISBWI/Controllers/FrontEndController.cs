@@ -16,6 +16,11 @@ namespace GISBWI.Controllers
             return View();
         }
 
+        public ActionResult MapView()
+        {
+            return View();
+        }
+
        
     }
 }

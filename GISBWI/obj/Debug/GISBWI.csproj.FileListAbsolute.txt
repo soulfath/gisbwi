@@ -66,3 +66,37 @@ E:\SOULFATH\1. Soulfath-Studio!\1. Project\5. GIS\Bismillah-GIS\GISBWI\trunk\GIS
 E:\SOULFATH\1. Soulfath-Studio!\1. Project\5. GIS\Bismillah-GIS\GISBWI\trunk\GISBWI\obj\Debug\GISBWI.csprojResolveAssemblyReference.cache
 E:\SOULFATH\1. Soulfath-Studio!\1. Project\5. GIS\Bismillah-GIS\GISBWI\trunk\GISBWI\obj\Debug\GISBWI.dll
 E:\SOULFATH\1. Soulfath-Studio!\1. Project\5. GIS\Bismillah-GIS\GISBWI\trunk\GISBWI\obj\Debug\GISBWI.pdb
+D:\PROJECT\GIS BBWI\SVN\trunk\GISBWI\bin\GISBWI.dll
+D:\PROJECT\GIS BBWI\SVN\trunk\GISBWI\bin\GISBWI.pdb
+D:\PROJECT\GIS BBWI\SVN\trunk\GISBWI\bin\Antlr3.Runtime.dll
+D:\PROJECT\GIS BBWI\SVN\trunk\GISBWI\bin\EntityFramework.dll
+D:\PROJECT\GIS BBWI\SVN\trunk\GISBWI\bin\Microsoft.Web.Infrastructure.dll
+D:\PROJECT\GIS BBWI\SVN\trunk\GISBWI\bin\Newtonsoft.Json.dll
+D:\PROJECT\GIS BBWI\SVN\trunk\GISBWI\bin\System.Net.Http.dll
+D:\PROJECT\GIS BBWI\SVN\trunk\GISBWI\bin\System.Net.Http.Formatting.dll
+D:\PROJECT\GIS BBWI\SVN\trunk\GISBWI\bin\System.Net.Http.WebRequest.dll
+D:\PROJECT\GIS BBWI\SVN\trunk\GISBWI\bin\System.Web.Http.dll
+D:\PROJECT\GIS BBWI\SVN\trunk\GISBWI\bin\System.Web.Http.WebHost.dll
+D:\PROJECT\GIS BBWI\SVN\trunk\GISBWI\bin\System.Web.Mvc.dll
+D:\PROJECT\GIS BBWI\SVN\trunk\GISBWI\bin\System.Web.Optimization.dll
+D:\PROJECT\GIS BBWI\SVN\trunk\GISBWI\bin\System.Web.Providers.dll
+D:\PROJECT\GIS BBWI\SVN\trunk\GISBWI\bin\System.Web.Razor.dll
+D:\PROJECT\GIS BBWI\SVN\trunk\GISBWI\bin\System.Web.WebPages.Deployment.dll
+D:\PROJECT\GIS BBWI\SVN\trunk\GISBWI\bin\System.Web.WebPages.dll
+D:\PROJECT\GIS BBWI\SVN\trunk\GISBWI\bin\System.Web.WebPages.Razor.dll
+D:\PROJECT\GIS BBWI\SVN\trunk\GISBWI\bin\WebGrease.dll
+D:\PROJECT\GIS BBWI\SVN\trunk\GISBWI\bin\EntityFramework.xml
+D:\PROJECT\GIS BBWI\SVN\trunk\GISBWI\bin\Newtonsoft.Json.xml
+D:\PROJECT\GIS BBWI\SVN\trunk\GISBWI\bin\System.Net.Http.xml
+D:\PROJECT\GIS BBWI\SVN\trunk\GISBWI\bin\System.Net.Http.Formatting.xml
+D:\PROJECT\GIS BBWI\SVN\trunk\GISBWI\bin\System.Net.Http.WebRequest.xml
+D:\PROJECT\GIS BBWI\SVN\trunk\GISBWI\bin\System.Web.Http.xml
+D:\PROJECT\GIS BBWI\SVN\trunk\GISBWI\bin\System.Web.Http.WebHost.xml
+D:\PROJECT\GIS BBWI\SVN\trunk\GISBWI\bin\System.Web.Mvc.xml
+D:\PROJECT\GIS BBWI\SVN\trunk\GISBWI\bin\System.Web.Razor.xml
+D:\PROJECT\GIS BBWI\SVN\trunk\GISBWI\bin\System.Web.WebPages.xml
+D:\PROJECT\GIS BBWI\SVN\trunk\GISBWI\bin\System.Web.WebPages.Deployment.xml
+D:\PROJECT\GIS BBWI\SVN\trunk\GISBWI\bin\System.Web.WebPages.Razor.xml
+D:\PROJECT\GIS BBWI\SVN\trunk\GISBWI\obj\Debug\GISBWI.csprojResolveAssemblyReference.cache
+D:\PROJECT\GIS BBWI\SVN\trunk\GISBWI\obj\Debug\GISBWI.dll
+D:\PROJECT\GIS BBWI\SVN\trunk\GISBWI\obj\Debug\GISBWI.pdb
