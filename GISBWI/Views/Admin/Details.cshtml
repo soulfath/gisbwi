@@ -1,4 +1,4 @@
-﻿@model GISBWI.ADODotNet.Admin
+﻿@model GISBWI.ADODotNet.admin
 
 @{
     ViewBag.Title = "Details";
@@ -8,13 +8,13 @@
 <h2>Details</h2>
 
 <fieldset>
-    <legend>Admin</legend>
+    <legend>admin</legend>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.idAdmin)
+         @Html.DisplayNameFor(model => model.idadmin)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.idAdmin)
+        @Html.DisplayFor(model => model.idadmin)
     </div>
 
     <div class="display-label">
@@ -53,6 +53,6 @@
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new {  id=Model.idAdmin }) |
+    @Html.ActionLink("Edit", "Edit", new {  id=Model.idadmin }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

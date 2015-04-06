@@ -1,4 +1,4 @@
-﻿@model IEnumerable<GISBWI.ADODotNet.Artikel>
+﻿@model IEnumerable<GISBWI.ADODotNet.artikel>
 
 @{
     ViewBag.Title = "Index";
@@ -52,13 +52,13 @@
                                         <thead>
                                         <tr>
                                         <th>
-                                            @Html.DisplayNameFor(model => model.idArtikel)
+                                            @Html.DisplayNameFor(model => model.idartikel)
                                         </th>
                                         <th>
                                             @Html.DisplayNameFor(model => model.judul)
                                         </th>
                                         <th>
-                                            @Html.DisplayNameFor(model => model.tanggalBuat)
+                                            @Html.DisplayNameFor(model => model.tanggal_buat)
                                         </th>
                                         <th>
                                             @Html.DisplayNameFor(model => model.status)
@@ -67,23 +67,23 @@
                                             @Html.DisplayNameFor(model => model.keterangan)
                                         </th>
                                         <th>
-                                            @Html.DisplayNameFor(model => model.Admin.nama)
+                                            @Html.DisplayNameFor(model => model.admin.nama)
                                         </th>
                                         <th>
-                                            @Html.DisplayNameFor(model => model.JenisArtikel.nama)
+                                            @Html.DisplayNameFor(model => model.jenis_artikel.nama)
                                         </th>
                                     </tr>
                                     </thead>
                                      @foreach (var item in Model) {
                                             <tr>
                                                 <td>
-                                                    @Html.DisplayFor(modelItem => item.idArtikel)
+                                                    @Html.DisplayFor(modelItem => item.idartikel)
                                                 </td>
                                                 <td>
                                                     @Html.DisplayFor(modelItem => item.judul)
                                                 </td>
                                                 <td>
-                                                    @Html.DisplayFor(modelItem => item.tanggalBuat)
+                                                    @Html.DisplayFor(modelItem => item.tanggal_buat)
                                                 </td>
                                                 <td>
                                                     @Html.DisplayFor(modelItem => item.status)
@@ -92,15 +92,15 @@
                                                     @Html.DisplayFor(modelItem => item.keterangan)
                                                 </td>
                                                 <td>
-                                                    @Html.DisplayFor(modelItem => item.Admin.nama)
+                                                    @Html.DisplayFor(modelItem => item.admin.nama)
                                                 </td>
                                                 <td>
-                                                    @Html.DisplayFor(modelItem => item.JenisArtikel.nama)
+                                                    @Html.DisplayFor(modelItem => item.jenis_artikel.nama)
                                                 </td>
                                                 <td>
-                                                    @Html.ActionLink("Edit", "Edit", new { id=item.idArtikel }) |
-                                                    @Html.ActionLink("Details", "Details", new { id=item.idArtikel }) |
-                                                    @Html.ActionLink("Delete", "Delete", new { id=item.idArtikel })
+                                                    @Html.ActionLink("Edit", "Edit", new { id=item.idartikel }) |
+                                                    @Html.ActionLink("Details", "Details", new { id=item.idartikel }) |
+                                                    @Html.ActionLink("Delete", "Delete", new { id=item.idartikel })
                                                 </td>
                                             </tr>
                                         }

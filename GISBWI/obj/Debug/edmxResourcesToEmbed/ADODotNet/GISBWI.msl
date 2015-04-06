@@ -1,39 +1,165 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="GISBWIModelStoreContainer" CdmEntityContainer="GISBWIEntities">
-    <EntitySetMapping Name="Admins">
-      <EntityTypeMapping TypeName="GISBWIModel.Admin">
-        <MappingFragment StoreEntitySet="Admin">
-          <ScalarProperty Name="idAdmin" ColumnName="idAdmin" />
+    <EntitySetMapping Name="admins">
+      <EntityTypeMapping TypeName="GISBWIModel.admin">
+        <MappingFragment StoreEntitySet="admin">
+          <ScalarProperty Name="idadmin" ColumnName="idadmin" />
           <ScalarProperty Name="nama" ColumnName="nama" />
           <ScalarProperty Name="email" ColumnName="email" />
           <ScalarProperty Name="username" ColumnName="username" />
           <ScalarProperty Name="password" ColumnName="password" />
           <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="privilege_idprivilege" ColumnName="privilege_idprivilege" />
+          <ScalarProperty Name="skpd_idskpd" ColumnName="skpd_idskpd" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Artikels">
-      <EntityTypeMapping TypeName="GISBWIModel.Artikel">
-        <MappingFragment StoreEntitySet="Artikel">
-          <ScalarProperty Name="idArtikel" ColumnName="idArtikel" />
+    <EntitySetMapping Name="artikels">
+      <EntityTypeMapping TypeName="GISBWIModel.artikel">
+        <MappingFragment StoreEntitySet="artikel">
+          <ScalarProperty Name="idartikel" ColumnName="idartikel" />
           <ScalarProperty Name="judul" ColumnName="judul" />
           <ScalarProperty Name="isi" ColumnName="isi" />
-          <ScalarProperty Name="tanggalBuat" ColumnName="tanggalBuat" />
+          <ScalarProperty Name="tanggal_buat" ColumnName="tanggal_buat" />
           <ScalarProperty Name="status" ColumnName="status" />
           <ScalarProperty Name="keterangan" ColumnName="keterangan" />
           <ScalarProperty Name="admin_idadmin" ColumnName="admin_idadmin" />
-          <ScalarProperty Name="jenis_artikel_idJenisArtikel" ColumnName="jenis_artikel_idJenisArtikel" />
+          <ScalarProperty Name="jenis_artikel_idjenis_artikel" ColumnName="jenis_artikel_idjenis_artikel" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="JenisArtikels">
-      <EntityTypeMapping TypeName="GISBWIModel.JenisArtikel">
-        <MappingFragment StoreEntitySet="JenisArtikel">
-          <ScalarProperty Name="idJenisArtikel" ColumnName="idJenisArtikel" />
+    <EntitySetMapping Name="customsettings">
+      <EntityTypeMapping TypeName="GISBWIModel.customsetting">
+        <MappingFragment StoreEntitySet="customsettings">
+          <ScalarProperty Name="idcustom_setting" ColumnName="idcustom_setting" />
+          <ScalarProperty Name="detilpeta_iddetilpeta" ColumnName="detilpeta_iddetilpeta" />
+          <ScalarProperty Name="columnname" ColumnName="columnname" />
+          <ScalarProperty Name="attribut_value" ColumnName="attribut_value" />
+          <ScalarProperty Name="color" ColumnName="color" />
+          <ScalarProperty Name="visible" ColumnName="visible" />
+          <ScalarProperty Name="idrow" ColumnName="idrow" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="departemen">
+      <EntityTypeMapping TypeName="GISBWIModel.departeman">
+        <MappingFragment StoreEntitySet="departemen">
+          <ScalarProperty Name="iddepartemen" ColumnName="iddepartemen" />
+          <ScalarProperty Name="nama" ColumnName="nama" />
+          <ScalarProperty Name="keterangan" ColumnName="keterangan" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="skpd_idskpd" ColumnName="skpd_idskpd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="detilpetas">
+      <EntityTypeMapping TypeName="GISBWIModel.detilpeta">
+        <MappingFragment StoreEntitySet="detilpeta">
+          <ScalarProperty Name="iddetilpeta" ColumnName="iddetilpeta" />
+          <ScalarProperty Name="konfigurasi_lain" ColumnName="konfigurasi_lain" />
+          <ScalarProperty Name="tooltip" ColumnName="tooltip" />
+          <ScalarProperty Name="peta_idpeta" ColumnName="peta_idpeta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="galeris">
+      <EntityTypeMapping TypeName="GISBWIModel.galeri">
+        <MappingFragment StoreEntitySet="galeri">
+          <ScalarProperty Name="idgaleri" ColumnName="idgaleri" />
+          <ScalarProperty Name="nama" ColumnName="nama" />
+          <ScalarProperty Name="tanggal" ColumnName="tanggal" />
+          <ScalarProperty Name="admin_idadmin" ColumnName="admin_idadmin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="gambars">
+      <EntityTypeMapping TypeName="GISBWIModel.gambar">
+        <MappingFragment StoreEntitySet="gambar">
+          <ScalarProperty Name="idgambar" ColumnName="idgambar" />
+          <ScalarProperty Name="judul" ColumnName="judul" />
+          <ScalarProperty Name="alamat" ColumnName="alamat" />
+          <ScalarProperty Name="prioritas" ColumnName="prioritas" />
+          <ScalarProperty Name="tanggal_buat" ColumnName="tanggal_buat" />
+          <ScalarProperty Name="profile" ColumnName="profile" />
+          <ScalarProperty Name="galeri_idgaleri" ColumnName="galeri_idgaleri" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="jenis_artikel">
+      <EntityTypeMapping TypeName="GISBWIModel.jenis_artikel">
+        <MappingFragment StoreEntitySet="jenis_artikel">
+          <ScalarProperty Name="idjenis_artikel" ColumnName="idjenis_artikel" />
           <ScalarProperty Name="nama" ColumnName="nama" />
           <ScalarProperty Name="status" ColumnName="status" />
           <ScalarProperty Name="keterangan" ColumnName="keterangan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="kategoris">
+      <EntityTypeMapping TypeName="GISBWIModel.kategori">
+        <MappingFragment StoreEntitySet="kategori">
+          <ScalarProperty Name="idkategori" ColumnName="idkategori" />
+          <ScalarProperty Name="nama_kategori" ColumnName="nama_kategori" />
+          <ScalarProperty Name="keterangan" ColumnName="keterangan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="petas">
+      <EntityTypeMapping TypeName="GISBWIModel.peta">
+        <MappingFragment StoreEntitySet="peta">
+          <ScalarProperty Name="idpeta" ColumnName="idpeta" />
+          <ScalarProperty Name="nama" ColumnName="nama" />
+          <ScalarProperty Name="lokasi" ColumnName="lokasi" />
+          <ScalarProperty Name="visible" ColumnName="visible" />
+          <ScalarProperty Name="datetime" ColumnName="datetime" />
+          <ScalarProperty Name="aktif" ColumnName="aktif" />
+          <ScalarProperty Name="departemen_iddepartemen" ColumnName="departemen_iddepartemen" />
+          <ScalarProperty Name="service_idservice" ColumnName="service_idservice" />
+          <ScalarProperty Name="kategori_idkategori" ColumnName="kategori_idkategori" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="privileges">
+      <EntityTypeMapping TypeName="GISBWIModel.privilege">
+        <MappingFragment StoreEntitySet="privilege">
+          <ScalarProperty Name="idprivilege" ColumnName="idprivilege" />
+          <ScalarProperty Name="nama" ColumnName="nama" />
+          <ScalarProperty Name="privilege1" ColumnName="privilege" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="services">
+      <EntityTypeMapping TypeName="GISBWIModel.service">
+        <MappingFragment StoreEntitySet="service">
+          <ScalarProperty Name="idservice" ColumnName="idservice" />
+          <ScalarProperty Name="nama" ColumnName="nama" />
+          <ScalarProperty Name="services" ColumnName="services" />
+          <ScalarProperty Name="admin_idadmin" ColumnName="admin_idadmin" />
+          <ScalarProperty Name="skpd_idskpd" ColumnName="skpd_idskpd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="skpds">
+      <EntityTypeMapping TypeName="GISBWIModel.skpd">
+        <MappingFragment StoreEntitySet="skpd">
+          <ScalarProperty Name="idskpd" ColumnName="idskpd" />
+          <ScalarProperty Name="nama" ColumnName="nama" />
+          <ScalarProperty Name="keterangan" ColumnName="keterangan" />
+          <ScalarProperty Name="alamat" ColumnName="alamat" />
+          <ScalarProperty Name="deskripsi" ColumnName="deskripsi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="subnavs">
+      <EntityTypeMapping TypeName="GISBWIModel.subnav">
+        <MappingFragment StoreEntitySet="subnav">
+          <ScalarProperty Name="idsubnav" ColumnName="idsubnav" />
+          <ScalarProperty Name="judul" ColumnName="judul" />
+          <ScalarProperty Name="isi" ColumnName="isi" />
+          <ScalarProperty Name="tanggal_buat" ColumnName="tanggal_buat" />
+          <ScalarProperty Name="keterangan" ColumnName="keterangan" />
+          <ScalarProperty Name="jenis_artikel_idjenis_artikel" ColumnName="jenis_artikel_idjenis_artikel" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

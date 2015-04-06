@@ -132,10 +132,25 @@
     <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ADODotNet\Admin.cs">
+    <Compile Include="ADODotNet\admin.cs">
       <DependentUpon>GISBWI.tt</DependentUpon>
     </Compile>
-    <Compile Include="ADODotNet\Artikel.cs">
+    <Compile Include="ADODotNet\artikel.cs">
+      <DependentUpon>GISBWI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ADODotNet\customsetting.cs">
+      <DependentUpon>GISBWI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ADODotNet\departeman.cs">
+      <DependentUpon>GISBWI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ADODotNet\detilpeta.cs">
+      <DependentUpon>GISBWI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ADODotNet\galeri.cs">
+      <DependentUpon>GISBWI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ADODotNet\gambar.cs">
       <DependentUpon>GISBWI.tt</DependentUpon>
     </Compile>
     <Compile Include="ADODotNet\GISBWI.Context.cs">
@@ -153,7 +168,25 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GISBWI.edmx</DependentUpon>
     </Compile>
-    <Compile Include="ADODotNet\JenisArtikel.cs">
+    <Compile Include="ADODotNet\jenis_artikel.cs">
+      <DependentUpon>GISBWI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ADODotNet\kategori.cs">
+      <DependentUpon>GISBWI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ADODotNet\peta.cs">
+      <DependentUpon>GISBWI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ADODotNet\privilege.cs">
+      <DependentUpon>GISBWI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ADODotNet\service.cs">
+      <DependentUpon>GISBWI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ADODotNet\skpd.cs">
+      <DependentUpon>GISBWI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ADODotNet\subnav.cs">
       <DependentUpon>GISBWI.tt</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -183,6 +216,37 @@
     <Content Include="App_Data\GISBWI_log.ldf">
       <DependentUpon>GISBWI.mdf</DependentUpon>
     </Content>
+    <Content Include="bin\Antlr3.Runtime.dll" />
+    <Content Include="bin\EntityFramework.dll" />
+    <Content Include="bin\EntityFramework.xml" />
+    <Content Include="bin\GISBWI.dll" />
+    <Content Include="bin\GISBWI.pdb" />
+    <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\Newtonsoft.Json.xml" />
+    <Content Include="bin\System.Net.Http.dll" />
+    <Content Include="bin\System.Net.Http.Formatting.dll" />
+    <Content Include="bin\System.Net.Http.Formatting.xml" />
+    <Content Include="bin\System.Net.Http.WebRequest.dll" />
+    <Content Include="bin\System.Net.Http.WebRequest.xml" />
+    <Content Include="bin\System.Net.Http.xml" />
+    <Content Include="bin\System.Web.Http.dll" />
+    <Content Include="bin\System.Web.Http.WebHost.dll" />
+    <Content Include="bin\System.Web.Http.WebHost.xml" />
+    <Content Include="bin\System.Web.Http.xml" />
+    <Content Include="bin\System.Web.Mvc.dll" />
+    <Content Include="bin\System.Web.Mvc.xml" />
+    <Content Include="bin\System.Web.Optimization.dll" />
+    <Content Include="bin\System.Web.Providers.dll" />
+    <Content Include="bin\System.Web.Razor.dll" />
+    <Content Include="bin\System.Web.Razor.xml" />
+    <Content Include="bin\System.Web.WebPages.Deployment.dll" />
+    <Content Include="bin\System.Web.WebPages.Deployment.xml" />
+    <Content Include="bin\System.Web.WebPages.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.xml" />
+    <Content Include="bin\System.Web.WebPages.xml" />
+    <Content Include="bin\WebGrease.dll" />
     <Content Include="Content\bootstrap-datetimepicker.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -4215,23 +4279,6 @@
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\FontAwesome.otf" />
-    <EntityDeploy Include="ADODotNet\GISBWI.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>GISBWI.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="ADODotNet\GISBWI.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>GISBWI.edmx</DependentUpon>
-      <LastGenOutput>GISBWI.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="ADODotNet\GISBWI.edmx.diagram">
-      <DependentUpon>GISBWI.edmx</DependentUpon>
-    </Content>
-    <Content Include="ADODotNet\GISBWI.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>GISBWI.edmx</DependentUpon>
-      <LastGenOutput>GISBWI.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\ckeditor\CHANGES.md" />
     <Content Include="Scripts\ckeditor\LICENSE.md" />
     <Content Include="Scripts\ckeditor\package.json" />
@@ -4273,6 +4320,23 @@
     <Content Include="Scripts\ckeditor\skins\bootstrapck\scss\dialog\dialog.scss" />
     <Content Include="Handler\MapHttpHandler\ExampleMapHandler.ashx" />
     <Content Include="Handler\Upload\UploadHandler.ashx" />
+    <EntityDeploy Include="ADODotNet\GISBWI.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>GISBWI.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="ADODotNet\GISBWI.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GISBWI.edmx</DependentUpon>
+      <LastGenOutput>GISBWI.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ADODotNet\GISBWI.edmx.diagram">
+      <DependentUpon>GISBWI.edmx</DependentUpon>
+    </Content>
+    <Content Include="ADODotNet\GISBWI.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GISBWI.edmx</DependentUpon>
+      <LastGenOutput>GISBWI.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.3.js" />
     <Content Include="Scripts\jquery-2.1.3.min.js" />

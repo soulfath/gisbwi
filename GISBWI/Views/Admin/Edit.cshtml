@@ -1,4 +1,4 @@
-﻿@model GISBWI.ADODotNet.Admin
+﻿@model GISBWI.ADODotNet.admin
 
 @{
     ViewBag.Title = "Edit";
@@ -11,14 +11,14 @@
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>Admin</legend>
+        <legend>admin</legend>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.idAdmin)
+            @Html.LabelFor(model => model.idadmin)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.idAdmin)
-            @Html.ValidationMessageFor(model => model.idAdmin)
+            @Html.EditorFor(model => model.idadmin)
+            @Html.ValidationMessageFor(model => model.idadmin)
         </div>
 
         <div class="editor-label">

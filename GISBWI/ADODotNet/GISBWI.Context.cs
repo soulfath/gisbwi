@@ -25,8 +25,19 @@ namespace GISBWI.ADODotNet
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<Admin> Admins { get; set; }
-        public DbSet<Artikel> Artikels { get; set; }
-        public DbSet<JenisArtikel> JenisArtikels { get; set; }
+        public DbSet<admin> admins { get; set; }
+        public DbSet<artikel> artikels { get; set; }
+        public DbSet<customsetting> customsettings { get; set; }
+        public DbSet<departeman> departemen { get; set; }
+        public DbSet<detilpeta> detilpetas { get; set; }
+        public DbSet<galeri> galeris { get; set; }
+        public DbSet<gambar> gambars { get; set; }
+        public DbSet<jenis_artikel> jenis_artikel { get; set; }
+        public DbSet<kategori> kategoris { get; set; }
+        public DbSet<peta> petas { get; set; }
+        public DbSet<privilege> privileges { get; set; }
+        public DbSet<service> services { get; set; }
+        public DbSet<skpd> skpds { get; set; }
+        public DbSet<subnav> subnavs { get; set; }
     }
 }

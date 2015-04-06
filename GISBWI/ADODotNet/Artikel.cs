@@ -12,18 +12,18 @@ namespace GISBWI.ADODotNet
     using System;
     using System.Collections.Generic;
     
-    public partial class Artikel
+    public partial class artikel
     {
-        public int idArtikel { get; set; }
+        public int idartikel { get; set; }
         public string judul { get; set; }
         public string isi { get; set; }
-        public Nullable<System.DateTime> tanggalBuat { get; set; }
+        public Nullable<System.DateTime> tanggal_buat { get; set; }
         public Nullable<int> status { get; set; }
         public string keterangan { get; set; }
         public Nullable<int> admin_idadmin { get; set; }
-        public Nullable<int> jenis_artikel_idJenisArtikel { get; set; }
+        public Nullable<int> jenis_artikel_idjenis_artikel { get; set; }
     
-        public virtual Admin Admin { get; set; }
-        public virtual JenisArtikel JenisArtikel { get; set; }
+        public virtual admin admin { get; set; }
+        public virtual jenis_artikel jenis_artikel { get; set; }
     }
 }

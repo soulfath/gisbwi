@@ -1,4 +1,4 @@
-﻿@model GISBWI.ADODotNet.Artikel
+﻿@model GISBWI.ADODotNet.artikel
 
 @{
     ViewBag.Title = "Edit";
@@ -15,7 +15,7 @@
 	    <!-- Page heading -->
 	    <div class="page-head">
         <!-- Page heading -->
-	      <h2 class="pull-left"><i class="fa fa-file-o"></i> Edit Artikel</h2>
+	      <h2 class="pull-left"><i class="fa fa-file-o"></i> Edit artikel</h2>
         </h2>
 
 
@@ -24,7 +24,7 @@
           <a href="index.html"><i class="fa fa-home"></i> Home</a> 
           <!-- Divider -->
           <span class="divider">/</span> 
-          <a href="#" class="bread-current">Edit Artikel</a>
+          <a href="#" class="bread-current">Edit artikel</a>
         </div>
 
         <div class="clearfix"></div>
@@ -60,7 +60,7 @@
 
                     <br />
                     <!-- Form starts.  -->
-                     @using (Html.BeginForm("Edit", "Artikel", FormMethod.Post, new { @class="form-horizontal" }))
+                     @using (Html.BeginForm("Edit", "artikel", FormMethod.Post, new { @class="form-horizontal" }))
 {
     @Html.ValidationSummary(true)
     <legend></legend>
@@ -138,8 +138,8 @@
     </div>
 <script type="text/javascript">
     CKEDITOR.replace('editor1', {
-        filebrowserImageBrowseUrl: '/Artikel/UploadPartial',
-        filebrowserImageUploadUrl: '/Artikel/UploadNow'
+        filebrowserImageBrowseUrl: '/artikel/UploadPartial',
+        filebrowserImageUploadUrl: '/artikel/UploadNow'
     });
     function updateValue(id, value) {
         // this gets called from the popup window and updates the field with a new value 

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<GISBWI.ADODotNet.Admin>
+﻿@model IEnumerable<GISBWI.ADODotNet.admin>
 
 @{
     ViewBag.Title = "Index";
@@ -13,7 +13,7 @@
 <table>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.idAdmin)
+            @Html.DisplayNameFor(model => model.idadmin)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.nama)
@@ -36,7 +36,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.idAdmin)
+            @Html.DisplayFor(modelItem => item.idadmin)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.nama)
@@ -54,9 +54,9 @@
             @Html.DisplayFor(modelItem => item.status)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new {  id=item.idAdmin}) |
-            @Html.ActionLink("Details", "Details", new { id=item.idAdmin }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idAdmin})
+            @Html.ActionLink("Edit", "Edit", new {  id=item.idadmin}) |
+            @Html.ActionLink("Details", "Details", new { id=item.idadmin }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idadmin})
         </td>
     </tr>
 }

@@ -4,12 +4,36 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="1573fc7fe785485a932eacc5efc56e4d" Name="Diagram1">
-        <EntityTypeShape EntityType="GISBWIModel.Admin" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="GISBWIModel.Artikel" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="GISBWIModel.JenisArtikel" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
-        <AssociationConnector Association="GISBWIModel.FK_Artikel_Admin" ManuallyRouted="false" />
-        <AssociationConnector Association="GISBWIModel.FK_Artikel_Jenis_Artikel" ManuallyRouted="false" />
+      <Diagram DiagramId="a53b0fa8b7fa4e1ab9592aa5213de46f" Name="Diagram1">
+        <EntityTypeShape EntityType="GISBWIModel.admin" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="GISBWIModel.artikel" Width="1.5" PointX="5.25" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GISBWIModel.customsetting" Width="1.5" PointX="15" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GISBWIModel.departeman" Width="1.5" PointX="3" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GISBWIModel.detilpeta" Width="1.5" PointX="12.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GISBWIModel.galeri" Width="1.5" PointX="5.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GISBWIModel.gambar" Width="1.5" PointX="7.5" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GISBWIModel.jenis_artikel" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GISBWIModel.kategori" Width="1.5" PointX="8.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GISBWIModel.peta" Width="1.5" PointX="10.5" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GISBWIModel.privilege" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GISBWIModel.service" Width="1.5" PointX="8.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GISBWIModel.skpd" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GISBWIModel.subnav" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
+        <AssociationConnector Association="GISBWIModel.FK_admin_privilege" ManuallyRouted="false" />
+        <AssociationConnector Association="GISBWIModel.FK_admin_skpd" ManuallyRouted="false" />
+        <AssociationConnector Association="GISBWIModel.FK_artikel_admin" ManuallyRouted="false" />
+        <AssociationConnector Association="GISBWIModel.FK_galeri_admin" ManuallyRouted="false" />
+        <AssociationConnector Association="GISBWIModel.FK_service_admin" ManuallyRouted="false" />
+        <AssociationConnector Association="GISBWIModel.FK_artikel_jenis_artikel" ManuallyRouted="false" />
+        <AssociationConnector Association="GISBWIModel.FK_customsettings_detilpeta" ManuallyRouted="false" />
+        <AssociationConnector Association="GISBWIModel.FK_departemen_skpd" ManuallyRouted="false" />
+        <AssociationConnector Association="GISBWIModel.FK_peta_departemen" ManuallyRouted="false" />
+        <AssociationConnector Association="GISBWIModel.FK_detilpeta_peta" ManuallyRouted="false" />
+        <AssociationConnector Association="GISBWIModel.FK_gambar_galeri" ManuallyRouted="false" />
+        <AssociationConnector Association="GISBWIModel.FK_subnav_jenis_artikel" ManuallyRouted="false" />
+        <AssociationConnector Association="GISBWIModel.FK_peta_kategori" ManuallyRouted="false" />
+        <AssociationConnector Association="GISBWIModel.FK_peta_service" ManuallyRouted="false" />
+        <AssociationConnector Association="GISBWIModel.FK_service_skpd" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

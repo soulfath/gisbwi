@@ -1,4 +1,4 @@
-﻿@model GISBWI.ADODotNet.Artikel
+﻿@model GISBWI.ADODotNet.artikel
 
 @{
     ViewBag.Title = "Delete";
@@ -9,13 +9,13 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <fieldset>
-    <legend>Artikel</legend>
+    <legend>artikel</legend>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.idArtikel)
+         @Html.DisplayNameFor(model => model.idartikel)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.idArtikel)
+        @Html.DisplayFor(model => model.idartikel)
     </div>
 
     <div class="display-label">
@@ -33,10 +33,10 @@
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.tanggalBuat)
+         @Html.DisplayNameFor(model => model.tanggal_buat)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.tanggalBuat)
+        @Html.DisplayFor(model => model.tanggal_buat)
     </div>
 
     <div class="display-label">
@@ -54,17 +54,17 @@
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Admin.nama)
+         @Html.DisplayNameFor(model => model.admin.nama)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Admin.nama)
+        @Html.DisplayFor(model => model.admin.nama)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.JenisArtikel.nama)
+         @Html.DisplayNameFor(model => model.jenis_artikel.nama)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.JenisArtikel.nama)
+        @Html.DisplayFor(model => model.jenis_artikel.nama)
     </div>
 </fieldset>
 @using (Html.BeginForm()) {

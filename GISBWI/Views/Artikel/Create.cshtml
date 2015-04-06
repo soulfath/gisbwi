@@ -1,4 +1,4 @@
-﻿@model GISBWI.ADODotNet.Artikel
+﻿@model GISBWI.ADODotNet.artikel
 
 @{
     ViewBag.Title = "Create";
@@ -11,14 +11,14 @@
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>Artikel</legend>
+        <legend>artikel</legend>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.idArtikel)
+            @Html.LabelFor(model => model.idartikel)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.idArtikel)
-            @Html.ValidationMessageFor(model => model.idArtikel)
+            @Html.EditorFor(model => model.idartikel)
+            @Html.ValidationMessageFor(model => model.idartikel)
         </div>
 
         <div class="editor-label">
@@ -38,11 +38,11 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.tanggalBuat)
+            @Html.LabelFor(model => model.tanggal_buat)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.tanggalBuat)
-            @Html.ValidationMessageFor(model => model.tanggalBuat)
+            @Html.EditorFor(model => model.tanggal_buat)
+            @Html.ValidationMessageFor(model => model.tanggal_buat)
         </div>
 
         <div class="editor-label">
@@ -62,7 +62,7 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.admin_idadmin, "Admin")
+            @Html.LabelFor(model => model.admin_idadmin, "admin")
         </div>
         <div class="editor-field">
             @Html.DropDownList("admin_idadmin", String.Empty)
@@ -70,7 +70,7 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.jenis_artikel_idJenisArtikel, "JenisArtikel")
+            @Html.LabelFor(model => model.jenis_artikel_idJenisArtikel, "jenis_artikel")
         </div>
         <div class="editor-field">
             @Html.DropDownList("jenis_artikel_idJenisArtikel", String.Empty)

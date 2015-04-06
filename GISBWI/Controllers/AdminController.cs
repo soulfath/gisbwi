@@ -16,19 +16,19 @@ namespace GISBWI.Controllers
 
         // CRUD ADMIN
         //
-        // GET: /Admin/
+        // GET: /admin/
 
         public ActionResult Index()
         {
-            return View(db.Admins.ToList());
+            return View(db.admins.ToList());
         }
 
         //
-        // GET: /Admin/Details/5
+        // GET: /admin/Details/5
 
         public ActionResult Details(int id = 0)
         {
-            Admin admin = db.Admins.Find(id);
+            admin admin = db.admins.Find(id);
             if (admin == null)
             {
                 return HttpNotFound();
@@ -37,7 +37,7 @@ namespace GISBWI.Controllers
         }
 
         //
-        // GET: /Admin/Create
+        // GET: /admin/Create
 
         public ActionResult Create()
         {
@@ -45,14 +45,14 @@ namespace GISBWI.Controllers
         }
 
         //
-        // POST: /Admin/Create
+        // POST: /admin/Create
 
         [HttpPost]
-        public ActionResult Create(Admin admin)
+        public ActionResult Create(admin admin)
         {
             if (ModelState.IsValid)
             {
-                db.Admins.Add(admin);
+                db.admins.Add(admin);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -61,11 +61,11 @@ namespace GISBWI.Controllers
         }
 
         //
-        // GET: /Admin/Edit/5
+        // GET: /admin/Edit/5
 
         public ActionResult Edit(int id = 0)
         {
-            Admin admin = db.Admins.Find(id);
+            admin admin = db.admins.Find(id);
             if (admin == null)
             {
                 return HttpNotFound();
@@ -74,10 +74,10 @@ namespace GISBWI.Controllers
         }
 
         //
-        // POST: /Admin/Edit/5
+        // POST: /admin/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(Admin admin)
+        public ActionResult Edit(admin admin)
         {
             if (ModelState.IsValid)
             {
@@ -89,11 +89,11 @@ namespace GISBWI.Controllers
         }
 
         //
-        // GET: /Admin/Delete/5
+        // GET: /admin/Delete/5
 
         public ActionResult Delete(int id = 0)
         {
-            Admin admin = db.Admins.Find(id);
+            admin admin = db.admins.Find(id);
             if (admin == null)
             {
                 return HttpNotFound();
@@ -102,13 +102,13 @@ namespace GISBWI.Controllers
         }
 
         //
-        // POST: /Admin/Delete/5
+        // POST: /admin/Delete/5
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            Admin admin = db.Admins.Find(id);
-            db.Admins.Remove(admin);
+            admin admin = db.admins.Find(id);
+            db.admins.Remove(admin);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -134,7 +134,7 @@ namespace GISBWI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(Admin admin)
+        public ActionResult Login(admin admin)
         {
             if (IsValid(admin.username, admin.password))
             {
@@ -159,7 +159,7 @@ namespace GISBWI.Controllers
             bool isvalid = false;
             using (var db = new GISBWIEntities())
             {
-                var user = db.Admins.FirstOrDefault(u => u.username == username);
+                var user = db.admins.FirstOrDefault(u => u.username == username);
                 if ( user != null )
                 {
                     if (user.password == password)

@@ -16,14 +16,14 @@ namespace GISBWI.Controllers
         private GISBWIEntities db = new GISBWIEntities();
 
         //
-        // GET: /Artikel/
+        // GET: /artikel/
 
 //        private bool IsAuthe
 
         [Authorize]
         public ActionResult Index()
         {
-            var artikels = db.Artikels.Include(a => a.Admin).Include(a => a.JenisArtikel);
+            var artikels = db.artikels.Include(a => a.admin).Include(a => a.jenis_artikel);
             return View(artikels.ToList());
         }
 
@@ -48,11 +48,11 @@ namespace GISBWI.Controllers
             return View(images);
         }
         //
-        // GET: /Artikel/Details/5
+        // GET: /artikel/Details/5
 
         public ActionResult Details(int id = 0)
         {
-            Artikel artikel = db.Artikels.Find(id);
+            artikel artikel = db.artikels.Find(id);
             if (artikel == null)
             {
                 return HttpNotFound();
@@ -61,54 +61,54 @@ namespace GISBWI.Controllers
         }
 
         //
-        // GET: /Artikel/Create
+        // GET: /artikel/Create
 
         public ActionResult Create()
         {
-            ViewBag.admin_idadmin = new SelectList(db.Admins, "idAdmin", "nama");
-            ViewBag.jenis_artikel_idJenisArtikel = new SelectList(db.JenisArtikels, "idJenisArtikel", "nama");
+            ViewBag.admin_idadmin = new SelectList(db.admins, "idAdmin", "nama");
+            ViewBag.jenis_artikel_idjenis_artikel = new SelectList(db.jenis_artikel, "idjenis_artikel", "nama");
             return View();
         }
 
         //
-        // POST: /Artikel/Create
+        // POST: /artikel/Create
 
         [HttpPost]
-        public ActionResult Create(Artikel artikel)
+        public ActionResult Create(artikel artikel)
         {
             if (ModelState.IsValid)
             {
-                db.Artikels.Add(artikel);
+                db.artikels.Add(artikel);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.admin_idadmin = new SelectList(db.Admins, "idAdmin", "nama", artikel.admin_idadmin);
-            ViewBag.jenis_artikel_idJenisArtikel = new SelectList(db.JenisArtikels, "idJenisArtikel", "nama", artikel.jenis_artikel_idJenisArtikel);
+            ViewBag.admin_idadmin = new SelectList(db.admins, "idAdmin", "nama", artikel.admin_idadmin);
+            ViewBag.jenis_artikel_idjenis_artikel = new SelectList(db.jenis_artikel, "idjenis_artikel", "nama", artikel.jenis_artikel_idjenis_artikel);
             return View(artikel);
         }
 
         //
-        // GET: /Artikel/Edit/5
+        // GET: /artikel/Edit/5
 
         public ActionResult Edit(int id = 0)
         {
-            Artikel artikel = db.Artikels.Find(id);
+            artikel artikel = db.artikels.Find(id);
             if (artikel == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.admin_idadmin = new SelectList(db.Admins, "idAdmin", "nama", artikel.admin_idadmin);
-            ViewBag.jenis_artikel_idJenisArtikel = new SelectList(db.JenisArtikels, "idJenisArtikel", "nama", artikel.jenis_artikel_idJenisArtikel);
+            ViewBag.admin_idadmin = new SelectList(db.admins, "idAdmin", "nama", artikel.admin_idadmin);
+            ViewBag.jenis_artikel_idjenis_artikel = new SelectList(db.jenis_artikel, "idjenis_artikel", "nama", artikel.jenis_artikel_idjenis_artikel);
             return View(artikel);
         }
 
         //
-        // POST: /Artikel/Edit/5
+        // POST: /artikel/Edit/5
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Edit(Artikel artikel)
+        public ActionResult Edit(artikel artikel)
         {
             if (ModelState.IsValid)
             {
@@ -116,17 +116,17 @@ namespace GISBWI.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.admin_idadmin = new SelectList(db.Admins, "idAdmin", "nama", artikel.admin_idadmin);
-            ViewBag.jenis_artikel_idJenisArtikel = new SelectList(db.JenisArtikels, "idJenisArtikel", "nama", artikel.jenis_artikel_idJenisArtikel);
+            ViewBag.admin_idadmin = new SelectList(db.admins, "idAdmin", "nama", artikel.admin_idadmin);
+            ViewBag.jenis_artikel_idjenis_artikel = new SelectList(db.jenis_artikel, "idjenis_artikel", "nama", artikel.jenis_artikel_idjenis_artikel);
             return View(artikel);
         }
 
         //
-        // GET: /Artikel/Delete/5
+        // GET: /artikel/Delete/5
 
         public ActionResult Delete(int id = 0)
         {
-            Artikel artikel = db.Artikels.Find(id);
+            artikel artikel = db.artikels.Find(id);
             if (artikel == null)
             {
                 return HttpNotFound();
@@ -135,13 +135,13 @@ namespace GISBWI.Controllers
         }
 
         //
-        // POST: /Artikel/Delete/5
+        // POST: /artikel/Delete/5
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            Artikel artikel = db.Artikels.Find(id);
-            db.Artikels.Remove(artikel);
+            artikel artikel = db.artikels.Find(id);
+            db.artikels.Remove(artikel);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

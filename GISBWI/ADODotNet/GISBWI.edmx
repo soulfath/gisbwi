@@ -6,151 +6,907 @@
     <edmx:StorageModels>
       <Schema Namespace="GISBWIModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="GISBWIModelStoreContainer">
-          <EntitySet Name="Admin" EntityType="GISBWIModel.Store.Admin" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Artikel" EntityType="GISBWIModel.Store.Artikel" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="JenisArtikel" EntityType="GISBWIModel.Store.JenisArtikel" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="FK_Artikel_Admin" Association="GISBWIModel.Store.FK_Artikel_Admin">
-            <End Role="Admin" EntitySet="Admin" />
-            <End Role="Artikel" EntitySet="Artikel" />
+          <EntitySet Name="admin" EntityType="GISBWIModel.Store.admin" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="artikel" EntityType="GISBWIModel.Store.artikel" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="customsettings" EntityType="GISBWIModel.Store.customsettings" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="departemen" EntityType="GISBWIModel.Store.departemen" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="detilpeta" EntityType="GISBWIModel.Store.detilpeta" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="galeri" EntityType="GISBWIModel.Store.galeri" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="gambar" EntityType="GISBWIModel.Store.gambar" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="jenis_artikel" EntityType="GISBWIModel.Store.jenis_artikel" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="kategori" EntityType="GISBWIModel.Store.kategori" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="peta" EntityType="GISBWIModel.Store.peta" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="privilege" EntityType="GISBWIModel.Store.privilege" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="service" EntityType="GISBWIModel.Store.service" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="skpd" EntityType="GISBWIModel.Store.skpd" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="subnav" EntityType="GISBWIModel.Store.subnav" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_admin_privilege" Association="GISBWIModel.Store.FK_admin_privilege">
+            <End Role="privilege" EntitySet="privilege" />
+            <End Role="admin" EntitySet="admin" />
           </AssociationSet>
-          <AssociationSet Name="FK_Artikel_Jenis_Artikel" Association="GISBWIModel.Store.FK_Artikel_Jenis_Artikel">
-            <End Role="JenisArtikel" EntitySet="JenisArtikel" />
-            <End Role="Artikel" EntitySet="Artikel" />
+          <AssociationSet Name="FK_admin_skpd" Association="GISBWIModel.Store.FK_admin_skpd">
+            <End Role="skpd" EntitySet="skpd" />
+            <End Role="admin" EntitySet="admin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_artikel_admin" Association="GISBWIModel.Store.FK_artikel_admin">
+            <End Role="admin" EntitySet="admin" />
+            <End Role="artikel" EntitySet="artikel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_artikel_jenis_artikel" Association="GISBWIModel.Store.FK_artikel_jenis_artikel">
+            <End Role="jenis_artikel" EntitySet="jenis_artikel" />
+            <End Role="artikel" EntitySet="artikel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_customsettings_detilpeta" Association="GISBWIModel.Store.FK_customsettings_detilpeta">
+            <End Role="detilpeta" EntitySet="detilpeta" />
+            <End Role="customsettings" EntitySet="customsettings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_departemen_skpd" Association="GISBWIModel.Store.FK_departemen_skpd">
+            <End Role="skpd" EntitySet="skpd" />
+            <End Role="departemen" EntitySet="departemen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detilpeta_peta" Association="GISBWIModel.Store.FK_detilpeta_peta">
+            <End Role="peta" EntitySet="peta" />
+            <End Role="detilpeta" EntitySet="detilpeta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_galeri_admin" Association="GISBWIModel.Store.FK_galeri_admin">
+            <End Role="admin" EntitySet="admin" />
+            <End Role="galeri" EntitySet="galeri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gambar_galeri" Association="GISBWIModel.Store.FK_gambar_galeri">
+            <End Role="galeri" EntitySet="galeri" />
+            <End Role="gambar" EntitySet="gambar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_peta_departemen" Association="GISBWIModel.Store.FK_peta_departemen">
+            <End Role="departemen" EntitySet="departemen" />
+            <End Role="peta" EntitySet="peta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_peta_kategori" Association="GISBWIModel.Store.FK_peta_kategori">
+            <End Role="kategori" EntitySet="kategori" />
+            <End Role="peta" EntitySet="peta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_peta_service" Association="GISBWIModel.Store.FK_peta_service">
+            <End Role="service" EntitySet="service" />
+            <End Role="peta" EntitySet="peta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_service_admin" Association="GISBWIModel.Store.FK_service_admin">
+            <End Role="admin" EntitySet="admin" />
+            <End Role="service" EntitySet="service" />
+          </AssociationSet>
+          <AssociationSet Name="FK_service_skpd" Association="GISBWIModel.Store.FK_service_skpd">
+            <End Role="skpd" EntitySet="skpd" />
+            <End Role="service" EntitySet="service" />
+          </AssociationSet>
+          <AssociationSet Name="FK_subnav_jenis_artikel" Association="GISBWIModel.Store.FK_subnav_jenis_artikel">
+            <End Role="jenis_artikel" EntitySet="jenis_artikel" />
+            <End Role="subnav" EntitySet="subnav" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Admin">
+        <EntityType Name="admin">
           <Key>
-            <PropertyRef Name="idAdmin" />
+            <PropertyRef Name="idadmin" />
           </Key>
-          <Property Name="idAdmin" Type="int" Nullable="false" />
-          <Property Name="nama" Type="varchar" MaxLength="45" />
-          <Property Name="email" Type="varchar" MaxLength="45" />
-          <Property Name="username" Type="varchar" MaxLength="45" />
-          <Property Name="password" Type="varchar" MaxLength="50" />
+          <Property Name="idadmin" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="nama" Type="varchar(max)" />
+          <Property Name="email" Type="varchar(max)" />
+          <Property Name="username" Type="varchar(max)" />
+          <Property Name="password" Type="varchar(max)" />
           <Property Name="status" Type="int" />
+          <Property Name="privilege_idprivilege" Type="int" />
+          <Property Name="skpd_idskpd" Type="int" />
         </EntityType>
-        <EntityType Name="Artikel">
+        <EntityType Name="artikel">
           <Key>
-            <PropertyRef Name="idArtikel" />
+            <PropertyRef Name="idartikel" />
           </Key>
-          <Property Name="idArtikel" Type="int" Nullable="false" />
-          <Property Name="judul" Type="varchar" MaxLength="50" />
-          <Property Name="isi" Type="nvarchar(max)" />
-          <Property Name="tanggalBuat" Type="datetime" />
+          <Property Name="idartikel" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="judul" Type="varchar(max)" />
+          <Property Name="isi" Type="varchar(max)" />
+          <Property Name="tanggal_buat" Type="datetime" />
           <Property Name="status" Type="int" />
-          <Property Name="keterangan" Type="nvarchar(max)" />
+          <Property Name="keterangan" Type="varchar(max)" />
           <Property Name="admin_idadmin" Type="int" />
-          <Property Name="jenis_artikel_idJenisArtikel" Type="int" />
+          <Property Name="jenis_artikel_idjenis_artikel" Type="int" />
         </EntityType>
-        <EntityType Name="JenisArtikel">
+        <EntityType Name="customsettings">
           <Key>
-            <PropertyRef Name="idJenisArtikel" />
+            <PropertyRef Name="idcustom_setting" />
           </Key>
-          <Property Name="idJenisArtikel" Type="int" Nullable="false" />
-          <Property Name="nama" Type="varchar" MaxLength="50" />
-          <Property Name="status" Type="int" />
-          <Property Name="keterangan" Type="nvarchar(max)" />
+          <Property Name="idcustom_setting" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="detilpeta_iddetilpeta" Type="int" />
+          <Property Name="columnname" Type="varchar(max)" />
+          <Property Name="attribut_value" Type="varchar(max)" />
+          <Property Name="color" Type="varchar(max)" />
+          <Property Name="visible" Type="int" />
+          <Property Name="idrow" Type="int" />
         </EntityType>
-        <Association Name="FK_Artikel_Admin">
-          <End Role="Admin" Type="GISBWIModel.Store.Admin" Multiplicity="0..1" />
-          <End Role="Artikel" Type="GISBWIModel.Store.Artikel" Multiplicity="*" />
+        <EntityType Name="departemen">
+          <Key>
+            <PropertyRef Name="iddepartemen" />
+          </Key>
+          <Property Name="iddepartemen" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="nama" Type="varchar(max)" />
+          <Property Name="keterangan" Type="varchar(max)" />
+          <Property Name="url" Type="varchar(max)" />
+          <Property Name="skpd_idskpd" Type="int" />
+        </EntityType>
+        <EntityType Name="detilpeta">
+          <Key>
+            <PropertyRef Name="iddetilpeta" />
+          </Key>
+          <Property Name="iddetilpeta" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="konfigurasi_lain" Type="varchar(max)" />
+          <Property Name="tooltip" Type="int" />
+          <Property Name="peta_idpeta" Type="int" />
+        </EntityType>
+        <EntityType Name="galeri">
+          <Key>
+            <PropertyRef Name="idgaleri" />
+          </Key>
+          <Property Name="idgaleri" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="nama" Type="varchar(max)" />
+          <Property Name="tanggal" Type="datetime" />
+          <Property Name="admin_idadmin" Type="int" />
+        </EntityType>
+        <EntityType Name="gambar">
+          <Key>
+            <PropertyRef Name="idgambar" />
+          </Key>
+          <Property Name="idgambar" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="judul" Type="varchar(max)" />
+          <Property Name="alamat" Type="varchar(max)" />
+          <Property Name="prioritas" Type="int" />
+          <Property Name="tanggal_buat" Type="datetime" />
+          <Property Name="profile" Type="varchar(max)" />
+          <Property Name="galeri_idgaleri" Type="int" />
+        </EntityType>
+        <EntityType Name="jenis_artikel">
+          <Key>
+            <PropertyRef Name="idjenis_artikel" />
+          </Key>
+          <Property Name="idjenis_artikel" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="nama" Type="varchar(max)" />
+          <Property Name="status" Type="int" />
+          <Property Name="keterangan" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="kategori">
+          <Key>
+            <PropertyRef Name="idkategori" />
+          </Key>
+          <Property Name="idkategori" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="nama_kategori" Type="varchar(max)" />
+          <Property Name="keterangan" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="peta">
+          <Key>
+            <PropertyRef Name="idpeta" />
+          </Key>
+          <Property Name="idpeta" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="nama" Type="varchar(max)" />
+          <Property Name="lokasi" Type="varchar(max)" />
+          <Property Name="visible" Type="int" />
+          <Property Name="datetime" Type="varchar(max)" />
+          <Property Name="aktif" Type="varchar(max)" />
+          <Property Name="departemen_iddepartemen" Type="int" />
+          <Property Name="service_idservice" Type="int" />
+          <Property Name="kategori_idkategori" Type="int" />
+        </EntityType>
+        <EntityType Name="privilege">
+          <Key>
+            <PropertyRef Name="idprivilege" />
+          </Key>
+          <Property Name="idprivilege" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="nama" Type="varchar(max)" />
+          <Property Name="privilege" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="service">
+          <Key>
+            <PropertyRef Name="idservice" />
+          </Key>
+          <Property Name="idservice" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="nama" Type="varchar(max)" />
+          <Property Name="services" Type="varchar(max)" />
+          <Property Name="admin_idadmin" Type="int" />
+          <Property Name="skpd_idskpd" Type="int" />
+        </EntityType>
+        <EntityType Name="skpd">
+          <Key>
+            <PropertyRef Name="idskpd" />
+          </Key>
+          <Property Name="idskpd" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="nama" Type="varchar(max)" />
+          <Property Name="keterangan" Type="varchar(max)" />
+          <Property Name="alamat" Type="varchar(max)" />
+          <Property Name="deskripsi" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="subnav">
+          <Key>
+            <PropertyRef Name="idsubnav" />
+          </Key>
+          <Property Name="idsubnav" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="judul" Type="varchar(max)" />
+          <Property Name="isi" Type="varchar(max)" />
+          <Property Name="tanggal_buat" Type="datetime" />
+          <Property Name="keterangan" Type="varchar(max)" />
+          <Property Name="jenis_artikel_idjenis_artikel" Type="int" />
+        </EntityType>
+        <Association Name="FK_admin_privilege">
+          <End Role="privilege" Type="GISBWIModel.Store.privilege" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="admin" Type="GISBWIModel.Store.admin" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Admin">
-              <PropertyRef Name="idAdmin" />
+            <Principal Role="privilege">
+              <PropertyRef Name="idprivilege" />
             </Principal>
-            <Dependent Role="Artikel">
+            <Dependent Role="admin">
+              <PropertyRef Name="privilege_idprivilege" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_admin_skpd">
+          <End Role="skpd" Type="GISBWIModel.Store.skpd" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="admin" Type="GISBWIModel.Store.admin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="skpd">
+              <PropertyRef Name="idskpd" />
+            </Principal>
+            <Dependent Role="admin">
+              <PropertyRef Name="skpd_idskpd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_artikel_admin">
+          <End Role="admin" Type="GISBWIModel.Store.admin" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="artikel" Type="GISBWIModel.Store.artikel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admin">
+              <PropertyRef Name="idadmin" />
+            </Principal>
+            <Dependent Role="artikel">
               <PropertyRef Name="admin_idadmin" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Artikel_Jenis_Artikel">
-          <End Role="JenisArtikel" Type="GISBWIModel.Store.JenisArtikel" Multiplicity="0..1" />
-          <End Role="Artikel" Type="GISBWIModel.Store.Artikel" Multiplicity="*" />
+        <Association Name="FK_artikel_jenis_artikel">
+          <End Role="jenis_artikel" Type="GISBWIModel.Store.jenis_artikel" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="artikel" Type="GISBWIModel.Store.artikel" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="JenisArtikel">
-              <PropertyRef Name="idJenisArtikel" />
+            <Principal Role="jenis_artikel">
+              <PropertyRef Name="idjenis_artikel" />
             </Principal>
-            <Dependent Role="Artikel">
-              <PropertyRef Name="jenis_artikel_idJenisArtikel" />
+            <Dependent Role="artikel">
+              <PropertyRef Name="jenis_artikel_idjenis_artikel" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_customsettings_detilpeta">
+          <End Role="detilpeta" Type="GISBWIModel.Store.detilpeta" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="customsettings" Type="GISBWIModel.Store.customsettings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="detilpeta">
+              <PropertyRef Name="iddetilpeta" />
+            </Principal>
+            <Dependent Role="customsettings">
+              <PropertyRef Name="detilpeta_iddetilpeta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_departemen_skpd">
+          <End Role="skpd" Type="GISBWIModel.Store.skpd" Multiplicity="0..1" />
+          <End Role="departemen" Type="GISBWIModel.Store.departemen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="skpd">
+              <PropertyRef Name="idskpd" />
+            </Principal>
+            <Dependent Role="departemen">
+              <PropertyRef Name="skpd_idskpd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_detilpeta_peta">
+          <End Role="peta" Type="GISBWIModel.Store.peta" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="detilpeta" Type="GISBWIModel.Store.detilpeta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="peta">
+              <PropertyRef Name="idpeta" />
+            </Principal>
+            <Dependent Role="detilpeta">
+              <PropertyRef Name="peta_idpeta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_galeri_admin">
+          <End Role="admin" Type="GISBWIModel.Store.admin" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="galeri" Type="GISBWIModel.Store.galeri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admin">
+              <PropertyRef Name="idadmin" />
+            </Principal>
+            <Dependent Role="galeri">
+              <PropertyRef Name="admin_idadmin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gambar_galeri">
+          <End Role="galeri" Type="GISBWIModel.Store.galeri" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="gambar" Type="GISBWIModel.Store.gambar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="galeri">
+              <PropertyRef Name="idgaleri" />
+            </Principal>
+            <Dependent Role="gambar">
+              <PropertyRef Name="galeri_idgaleri" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_peta_departemen">
+          <End Role="departemen" Type="GISBWIModel.Store.departemen" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="peta" Type="GISBWIModel.Store.peta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="departemen">
+              <PropertyRef Name="iddepartemen" />
+            </Principal>
+            <Dependent Role="peta">
+              <PropertyRef Name="departemen_iddepartemen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_peta_kategori">
+          <End Role="kategori" Type="GISBWIModel.Store.kategori" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="peta" Type="GISBWIModel.Store.peta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="kategori">
+              <PropertyRef Name="idkategori" />
+            </Principal>
+            <Dependent Role="peta">
+              <PropertyRef Name="kategori_idkategori" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_peta_service">
+          <End Role="service" Type="GISBWIModel.Store.service" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="peta" Type="GISBWIModel.Store.peta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="service">
+              <PropertyRef Name="idservice" />
+            </Principal>
+            <Dependent Role="peta">
+              <PropertyRef Name="service_idservice" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_service_admin">
+          <End Role="admin" Type="GISBWIModel.Store.admin" Multiplicity="0..1" />
+          <End Role="service" Type="GISBWIModel.Store.service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admin">
+              <PropertyRef Name="idadmin" />
+            </Principal>
+            <Dependent Role="service">
+              <PropertyRef Name="admin_idadmin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_service_skpd">
+          <End Role="skpd" Type="GISBWIModel.Store.skpd" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="service" Type="GISBWIModel.Store.service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="skpd">
+              <PropertyRef Name="idskpd" />
+            </Principal>
+            <Dependent Role="service">
+              <PropertyRef Name="skpd_idskpd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_subnav_jenis_artikel">
+          <End Role="jenis_artikel" Type="GISBWIModel.Store.jenis_artikel" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="subnav" Type="GISBWIModel.Store.subnav" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="jenis_artikel">
+              <PropertyRef Name="idjenis_artikel" />
+            </Principal>
+            <Dependent Role="subnav">
+              <PropertyRef Name="jenis_artikel_idjenis_artikel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <!--Errors Found During Generation:
+      warning 6013: The table/view 'E:\SOULFATH\1. SOULFATH-STUDIO!\1. PROJECT\5. GIS\BISMILLAH-GIS\GISBWI\TRUNK\GISBWI\APP_DATA\GISBWI.MDF.dbo.detildata' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="detildata">
+        <Property Name="peta_idpeta" Type="int" />
+        <Property Name="nama" Type="varchar(max)" />
+        <Property Name="text" Type="varchar(max)" />
+        <Property Name="tanggal_buat" Type="datetime" />
+        <Property Name="idrow" Type="int" />
+      </EntityType>-->
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="GISBWIModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="GISBWIEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Admins" EntityType="GISBWIModel.Admin" />
-          <EntitySet Name="Artikels" EntityType="GISBWIModel.Artikel" />
-          <EntitySet Name="JenisArtikels" EntityType="GISBWIModel.JenisArtikel" />
-          <AssociationSet Name="FK_Artikel_Admin" Association="GISBWIModel.FK_Artikel_Admin">
-            <End Role="Admin" EntitySet="Admins" />
-            <End Role="Artikel" EntitySet="Artikels" />
+          <EntitySet Name="admins" EntityType="GISBWIModel.admin" />
+          <EntitySet Name="artikels" EntityType="GISBWIModel.artikel" />
+          <EntitySet Name="customsettings" EntityType="GISBWIModel.customsetting" />
+          <EntitySet Name="departemen" EntityType="GISBWIModel.departeman" />
+          <EntitySet Name="detilpetas" EntityType="GISBWIModel.detilpeta" />
+          <EntitySet Name="galeris" EntityType="GISBWIModel.galeri" />
+          <EntitySet Name="gambars" EntityType="GISBWIModel.gambar" />
+          <EntitySet Name="jenis_artikel" EntityType="GISBWIModel.jenis_artikel" />
+          <EntitySet Name="kategoris" EntityType="GISBWIModel.kategori" />
+          <EntitySet Name="petas" EntityType="GISBWIModel.peta" />
+          <EntitySet Name="privileges" EntityType="GISBWIModel.privilege" />
+          <EntitySet Name="services" EntityType="GISBWIModel.service" />
+          <EntitySet Name="skpds" EntityType="GISBWIModel.skpd" />
+          <EntitySet Name="subnavs" EntityType="GISBWIModel.subnav" />
+          <AssociationSet Name="FK_admin_privilege" Association="GISBWIModel.FK_admin_privilege">
+            <End Role="privilege" EntitySet="privileges" />
+            <End Role="admin" EntitySet="admins" />
           </AssociationSet>
-          <AssociationSet Name="FK_Artikel_Jenis_Artikel" Association="GISBWIModel.FK_Artikel_Jenis_Artikel">
-            <End Role="JenisArtikel" EntitySet="JenisArtikels" />
-            <End Role="Artikel" EntitySet="Artikels" />
+          <AssociationSet Name="FK_admin_skpd" Association="GISBWIModel.FK_admin_skpd">
+            <End Role="skpd" EntitySet="skpds" />
+            <End Role="admin" EntitySet="admins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_artikel_admin" Association="GISBWIModel.FK_artikel_admin">
+            <End Role="admin" EntitySet="admins" />
+            <End Role="artikel" EntitySet="artikels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_galeri_admin" Association="GISBWIModel.FK_galeri_admin">
+            <End Role="admin" EntitySet="admins" />
+            <End Role="galeri" EntitySet="galeris" />
+          </AssociationSet>
+          <AssociationSet Name="FK_service_admin" Association="GISBWIModel.FK_service_admin">
+            <End Role="admin" EntitySet="admins" />
+            <End Role="service" EntitySet="services" />
+          </AssociationSet>
+          <AssociationSet Name="FK_artikel_jenis_artikel" Association="GISBWIModel.FK_artikel_jenis_artikel">
+            <End Role="jenis_artikel" EntitySet="jenis_artikel" />
+            <End Role="artikel" EntitySet="artikels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_customsettings_detilpeta" Association="GISBWIModel.FK_customsettings_detilpeta">
+            <End Role="detilpeta" EntitySet="detilpetas" />
+            <End Role="customsettings" EntitySet="customsettings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_departemen_skpd" Association="GISBWIModel.FK_departemen_skpd">
+            <End Role="skpd" EntitySet="skpds" />
+            <End Role="departemen" EntitySet="departemen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_peta_departemen" Association="GISBWIModel.FK_peta_departemen">
+            <End Role="departemen" EntitySet="departemen" />
+            <End Role="peta" EntitySet="petas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detilpeta_peta" Association="GISBWIModel.FK_detilpeta_peta">
+            <End Role="peta" EntitySet="petas" />
+            <End Role="detilpeta" EntitySet="detilpetas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_gambar_galeri" Association="GISBWIModel.FK_gambar_galeri">
+            <End Role="galeri" EntitySet="galeris" />
+            <End Role="gambar" EntitySet="gambars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_subnav_jenis_artikel" Association="GISBWIModel.FK_subnav_jenis_artikel">
+            <End Role="jenis_artikel" EntitySet="jenis_artikel" />
+            <End Role="subnav" EntitySet="subnavs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_peta_kategori" Association="GISBWIModel.FK_peta_kategori">
+            <End Role="kategori" EntitySet="kategoris" />
+            <End Role="peta" EntitySet="petas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_peta_service" Association="GISBWIModel.FK_peta_service">
+            <End Role="service" EntitySet="services" />
+            <End Role="peta" EntitySet="petas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_service_skpd" Association="GISBWIModel.FK_service_skpd">
+            <End Role="skpd" EntitySet="skpds" />
+            <End Role="service" EntitySet="services" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Admin">
+        <EntityType Name="admin">
           <Key>
-            <PropertyRef Name="idAdmin" />
+            <PropertyRef Name="idadmin" />
           </Key>
-          <Property Name="idAdmin" Type="Int32" Nullable="false" />
-          <Property Name="nama" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
-          <Property Name="email" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
-          <Property Name="username" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
-          <Property Name="password" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="idadmin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nama" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="email" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="username" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="password" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="status" Type="Int32" />
-          <NavigationProperty Name="Artikels" Relationship="GISBWIModel.FK_Artikel_Admin" FromRole="Admin" ToRole="Artikel" />
+          <Property Name="privilege_idprivilege" Type="Int32" />
+          <Property Name="skpd_idskpd" Type="Int32" />
+          <NavigationProperty Name="privilege" Relationship="GISBWIModel.FK_admin_privilege" FromRole="admin" ToRole="privilege" />
+          <NavigationProperty Name="skpd" Relationship="GISBWIModel.FK_admin_skpd" FromRole="admin" ToRole="skpd" />
+          <NavigationProperty Name="artikels" Relationship="GISBWIModel.FK_artikel_admin" FromRole="admin" ToRole="artikel" />
+          <NavigationProperty Name="galeris" Relationship="GISBWIModel.FK_galeri_admin" FromRole="admin" ToRole="galeri" />
+          <NavigationProperty Name="services" Relationship="GISBWIModel.FK_service_admin" FromRole="admin" ToRole="service" />
         </EntityType>
-        <EntityType Name="Artikel">
+        <EntityType Name="artikel">
           <Key>
-            <PropertyRef Name="idArtikel" />
+            <PropertyRef Name="idartikel" />
           </Key>
-          <Property Name="idArtikel" Type="Int32" Nullable="false" />
-          <Property Name="judul" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="isi" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="tanggalBuat" Type="DateTime" Precision="3" />
+          <Property Name="idartikel" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="judul" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="isi" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="tanggal_buat" Type="DateTime" Precision="3" />
           <Property Name="status" Type="Int32" />
-          <Property Name="keterangan" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="keterangan" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="admin_idadmin" Type="Int32" />
-          <Property Name="jenis_artikel_idJenisArtikel" Type="Int32" />
-          <NavigationProperty Name="Admin" Relationship="GISBWIModel.FK_Artikel_Admin" FromRole="Artikel" ToRole="Admin" />
-          <NavigationProperty Name="JenisArtikel" Relationship="GISBWIModel.FK_Artikel_Jenis_Artikel" FromRole="Artikel" ToRole="JenisArtikel" />
+          <Property Name="jenis_artikel_idjenis_artikel" Type="Int32" />
+          <NavigationProperty Name="admin" Relationship="GISBWIModel.FK_artikel_admin" FromRole="artikel" ToRole="admin" />
+          <NavigationProperty Name="jenis_artikel" Relationship="GISBWIModel.FK_artikel_jenis_artikel" FromRole="artikel" ToRole="jenis_artikel" />
         </EntityType>
-        <EntityType Name="JenisArtikel">
+        <EntityType Name="customsetting">
           <Key>
-            <PropertyRef Name="idJenisArtikel" />
+            <PropertyRef Name="idcustom_setting" />
           </Key>
-          <Property Name="idJenisArtikel" Type="Int32" Nullable="false" />
-          <Property Name="nama" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="status" Type="Int32" />
-          <Property Name="keterangan" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="Artikels" Relationship="GISBWIModel.FK_Artikel_Jenis_Artikel" FromRole="JenisArtikel" ToRole="Artikel" />
+          <Property Name="idcustom_setting" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="detilpeta_iddetilpeta" Type="Int32" />
+          <Property Name="columnname" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="attribut_value" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="color" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="visible" Type="Int32" />
+          <Property Name="idrow" Type="Int32" />
+          <NavigationProperty Name="detilpeta" Relationship="GISBWIModel.FK_customsettings_detilpeta" FromRole="customsettings" ToRole="detilpeta" />
         </EntityType>
-        <Association Name="FK_Artikel_Admin">
-          <End Role="Admin" Type="GISBWIModel.Admin" Multiplicity="0..1" />
-          <End Role="Artikel" Type="GISBWIModel.Artikel" Multiplicity="*" />
+        <EntityType Name="departeman">
+          <Key>
+            <PropertyRef Name="iddepartemen" />
+          </Key>
+          <Property Name="iddepartemen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nama" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="keterangan" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="url" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="skpd_idskpd" Type="Int32" />
+          <NavigationProperty Name="skpd" Relationship="GISBWIModel.FK_departemen_skpd" FromRole="departemen" ToRole="skpd" />
+          <NavigationProperty Name="petas" Relationship="GISBWIModel.FK_peta_departemen" FromRole="departemen" ToRole="peta" />
+        </EntityType>
+        <EntityType Name="detilpeta">
+          <Key>
+            <PropertyRef Name="iddetilpeta" />
+          </Key>
+          <Property Name="iddetilpeta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="konfigurasi_lain" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="tooltip" Type="Int32" />
+          <Property Name="peta_idpeta" Type="Int32" />
+          <NavigationProperty Name="customsettings" Relationship="GISBWIModel.FK_customsettings_detilpeta" FromRole="detilpeta" ToRole="customsettings" />
+          <NavigationProperty Name="peta" Relationship="GISBWIModel.FK_detilpeta_peta" FromRole="detilpeta" ToRole="peta" />
+        </EntityType>
+        <EntityType Name="galeri">
+          <Key>
+            <PropertyRef Name="idgaleri" />
+          </Key>
+          <Property Name="idgaleri" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nama" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="tanggal" Type="DateTime" Precision="3" />
+          <Property Name="admin_idadmin" Type="Int32" />
+          <NavigationProperty Name="admin" Relationship="GISBWIModel.FK_galeri_admin" FromRole="galeri" ToRole="admin" />
+          <NavigationProperty Name="gambars" Relationship="GISBWIModel.FK_gambar_galeri" FromRole="galeri" ToRole="gambar" />
+        </EntityType>
+        <EntityType Name="gambar">
+          <Key>
+            <PropertyRef Name="idgambar" />
+          </Key>
+          <Property Name="idgambar" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="judul" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="alamat" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="prioritas" Type="Int32" />
+          <Property Name="tanggal_buat" Type="DateTime" Precision="3" />
+          <Property Name="profile" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="galeri_idgaleri" Type="Int32" />
+          <NavigationProperty Name="galeri" Relationship="GISBWIModel.FK_gambar_galeri" FromRole="gambar" ToRole="galeri" />
+        </EntityType>
+        <EntityType Name="jenis_artikel">
+          <Key>
+            <PropertyRef Name="idjenis_artikel" />
+          </Key>
+          <Property Name="idjenis_artikel" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nama" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="keterangan" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="artikels" Relationship="GISBWIModel.FK_artikel_jenis_artikel" FromRole="jenis_artikel" ToRole="artikel" />
+          <NavigationProperty Name="subnavs" Relationship="GISBWIModel.FK_subnav_jenis_artikel" FromRole="jenis_artikel" ToRole="subnav" />
+        </EntityType>
+        <EntityType Name="kategori">
+          <Key>
+            <PropertyRef Name="idkategori" />
+          </Key>
+          <Property Name="idkategori" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nama_kategori" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="keterangan" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="petas" Relationship="GISBWIModel.FK_peta_kategori" FromRole="kategori" ToRole="peta" />
+        </EntityType>
+        <EntityType Name="peta">
+          <Key>
+            <PropertyRef Name="idpeta" />
+          </Key>
+          <Property Name="idpeta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nama" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="lokasi" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="visible" Type="Int32" />
+          <Property Name="datetime" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="aktif" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="departemen_iddepartemen" Type="Int32" />
+          <Property Name="service_idservice" Type="Int32" />
+          <Property Name="kategori_idkategori" Type="Int32" />
+          <NavigationProperty Name="departeman" Relationship="GISBWIModel.FK_peta_departemen" FromRole="peta" ToRole="departemen" />
+          <NavigationProperty Name="detilpetas" Relationship="GISBWIModel.FK_detilpeta_peta" FromRole="peta" ToRole="detilpeta" />
+          <NavigationProperty Name="kategori" Relationship="GISBWIModel.FK_peta_kategori" FromRole="peta" ToRole="kategori" />
+          <NavigationProperty Name="service" Relationship="GISBWIModel.FK_peta_service" FromRole="peta" ToRole="service" />
+        </EntityType>
+        <EntityType Name="privilege">
+          <Key>
+            <PropertyRef Name="idprivilege" />
+          </Key>
+          <Property Name="idprivilege" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nama" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="privilege1" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="admins" Relationship="GISBWIModel.FK_admin_privilege" FromRole="privilege" ToRole="admin" />
+        </EntityType>
+        <EntityType Name="service">
+          <Key>
+            <PropertyRef Name="idservice" />
+          </Key>
+          <Property Name="idservice" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nama" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="services" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="admin_idadmin" Type="Int32" />
+          <Property Name="skpd_idskpd" Type="Int32" />
+          <NavigationProperty Name="admin" Relationship="GISBWIModel.FK_service_admin" FromRole="service" ToRole="admin" />
+          <NavigationProperty Name="petas" Relationship="GISBWIModel.FK_peta_service" FromRole="service" ToRole="peta" />
+          <NavigationProperty Name="skpd" Relationship="GISBWIModel.FK_service_skpd" FromRole="service" ToRole="skpd" />
+        </EntityType>
+        <EntityType Name="skpd">
+          <Key>
+            <PropertyRef Name="idskpd" />
+          </Key>
+          <Property Name="idskpd" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nama" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="keterangan" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="alamat" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="deskripsi" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="admins" Relationship="GISBWIModel.FK_admin_skpd" FromRole="skpd" ToRole="admin" />
+          <NavigationProperty Name="departemen" Relationship="GISBWIModel.FK_departemen_skpd" FromRole="skpd" ToRole="departemen" />
+          <NavigationProperty Name="services" Relationship="GISBWIModel.FK_service_skpd" FromRole="skpd" ToRole="service" />
+        </EntityType>
+        <EntityType Name="subnav">
+          <Key>
+            <PropertyRef Name="idsubnav" />
+          </Key>
+          <Property Name="idsubnav" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="judul" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="isi" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="tanggal_buat" Type="DateTime" Precision="3" />
+          <Property Name="keterangan" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="jenis_artikel_idjenis_artikel" Type="Int32" />
+          <NavigationProperty Name="jenis_artikel" Relationship="GISBWIModel.FK_subnav_jenis_artikel" FromRole="subnav" ToRole="jenis_artikel" />
+        </EntityType>
+        <Association Name="FK_admin_privilege">
+          <End Role="privilege" Type="GISBWIModel.privilege" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="admin" Type="GISBWIModel.admin" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Admin">
-              <PropertyRef Name="idAdmin" />
+            <Principal Role="privilege">
+              <PropertyRef Name="idprivilege" />
             </Principal>
-            <Dependent Role="Artikel">
+            <Dependent Role="admin">
+              <PropertyRef Name="privilege_idprivilege" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_admin_skpd">
+          <End Role="skpd" Type="GISBWIModel.skpd" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="admin" Type="GISBWIModel.admin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="skpd">
+              <PropertyRef Name="idskpd" />
+            </Principal>
+            <Dependent Role="admin">
+              <PropertyRef Name="skpd_idskpd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_artikel_admin">
+          <End Role="admin" Type="GISBWIModel.admin" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="artikel" Type="GISBWIModel.artikel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admin">
+              <PropertyRef Name="idadmin" />
+            </Principal>
+            <Dependent Role="artikel">
               <PropertyRef Name="admin_idadmin" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Artikel_Jenis_Artikel">
-          <End Role="JenisArtikel" Type="GISBWIModel.JenisArtikel" Multiplicity="0..1" />
-          <End Role="Artikel" Type="GISBWIModel.Artikel" Multiplicity="*" />
+        <Association Name="FK_galeri_admin">
+          <End Role="admin" Type="GISBWIModel.admin" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="galeri" Type="GISBWIModel.galeri" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="JenisArtikel">
-              <PropertyRef Name="idJenisArtikel" />
+            <Principal Role="admin">
+              <PropertyRef Name="idadmin" />
             </Principal>
-            <Dependent Role="Artikel">
-              <PropertyRef Name="jenis_artikel_idJenisArtikel" />
+            <Dependent Role="galeri">
+              <PropertyRef Name="admin_idadmin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_service_admin">
+          <End Role="admin" Type="GISBWIModel.admin" Multiplicity="0..1" />
+          <End Role="service" Type="GISBWIModel.service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admin">
+              <PropertyRef Name="idadmin" />
+            </Principal>
+            <Dependent Role="service">
+              <PropertyRef Name="admin_idadmin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_artikel_jenis_artikel">
+          <End Role="jenis_artikel" Type="GISBWIModel.jenis_artikel" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="artikel" Type="GISBWIModel.artikel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="jenis_artikel">
+              <PropertyRef Name="idjenis_artikel" />
+            </Principal>
+            <Dependent Role="artikel">
+              <PropertyRef Name="jenis_artikel_idjenis_artikel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_customsettings_detilpeta">
+          <End Role="detilpeta" Type="GISBWIModel.detilpeta" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="customsettings" Type="GISBWIModel.customsetting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="detilpeta">
+              <PropertyRef Name="iddetilpeta" />
+            </Principal>
+            <Dependent Role="customsettings">
+              <PropertyRef Name="detilpeta_iddetilpeta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_departemen_skpd">
+          <End Role="skpd" Type="GISBWIModel.skpd" Multiplicity="0..1" />
+          <End Role="departemen" Type="GISBWIModel.departeman" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="skpd">
+              <PropertyRef Name="idskpd" />
+            </Principal>
+            <Dependent Role="departemen">
+              <PropertyRef Name="skpd_idskpd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_peta_departemen">
+          <End Role="departemen" Type="GISBWIModel.departeman" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="peta" Type="GISBWIModel.peta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="departemen">
+              <PropertyRef Name="iddepartemen" />
+            </Principal>
+            <Dependent Role="peta">
+              <PropertyRef Name="departemen_iddepartemen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_detilpeta_peta">
+          <End Role="peta" Type="GISBWIModel.peta" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="detilpeta" Type="GISBWIModel.detilpeta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="peta">
+              <PropertyRef Name="idpeta" />
+            </Principal>
+            <Dependent Role="detilpeta">
+              <PropertyRef Name="peta_idpeta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_gambar_galeri">
+          <End Role="galeri" Type="GISBWIModel.galeri" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="gambar" Type="GISBWIModel.gambar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="galeri">
+              <PropertyRef Name="idgaleri" />
+            </Principal>
+            <Dependent Role="gambar">
+              <PropertyRef Name="galeri_idgaleri" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_subnav_jenis_artikel">
+          <End Role="jenis_artikel" Type="GISBWIModel.jenis_artikel" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="subnav" Type="GISBWIModel.subnav" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="jenis_artikel">
+              <PropertyRef Name="idjenis_artikel" />
+            </Principal>
+            <Dependent Role="subnav">
+              <PropertyRef Name="jenis_artikel_idjenis_artikel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_peta_kategori">
+          <End Role="kategori" Type="GISBWIModel.kategori" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="peta" Type="GISBWIModel.peta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="kategori">
+              <PropertyRef Name="idkategori" />
+            </Principal>
+            <Dependent Role="peta">
+              <PropertyRef Name="kategori_idkategori" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_peta_service">
+          <End Role="service" Type="GISBWIModel.service" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="peta" Type="GISBWIModel.peta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="service">
+              <PropertyRef Name="idservice" />
+            </Principal>
+            <Dependent Role="peta">
+              <PropertyRef Name="service_idservice" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_service_skpd">
+          <End Role="skpd" Type="GISBWIModel.skpd" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="service" Type="GISBWIModel.service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="skpd">
+              <PropertyRef Name="idskpd" />
+            </Principal>
+            <Dependent Role="service">
+              <PropertyRef Name="skpd_idskpd" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -160,39 +916,165 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="GISBWIModelStoreContainer" CdmEntityContainer="GISBWIEntities">
-          <EntitySetMapping Name="Admins">
-            <EntityTypeMapping TypeName="GISBWIModel.Admin">
-              <MappingFragment StoreEntitySet="Admin">
-                <ScalarProperty Name="idAdmin" ColumnName="idAdmin" />
+          <EntitySetMapping Name="admins">
+            <EntityTypeMapping TypeName="GISBWIModel.admin">
+              <MappingFragment StoreEntitySet="admin">
+                <ScalarProperty Name="idadmin" ColumnName="idadmin" />
                 <ScalarProperty Name="nama" ColumnName="nama" />
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="username" ColumnName="username" />
                 <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="privilege_idprivilege" ColumnName="privilege_idprivilege" />
+                <ScalarProperty Name="skpd_idskpd" ColumnName="skpd_idskpd" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Artikels">
-            <EntityTypeMapping TypeName="GISBWIModel.Artikel">
-              <MappingFragment StoreEntitySet="Artikel">
-                <ScalarProperty Name="idArtikel" ColumnName="idArtikel" />
+          <EntitySetMapping Name="artikels">
+            <EntityTypeMapping TypeName="GISBWIModel.artikel">
+              <MappingFragment StoreEntitySet="artikel">
+                <ScalarProperty Name="idartikel" ColumnName="idartikel" />
                 <ScalarProperty Name="judul" ColumnName="judul" />
                 <ScalarProperty Name="isi" ColumnName="isi" />
-                <ScalarProperty Name="tanggalBuat" ColumnName="tanggalBuat" />
+                <ScalarProperty Name="tanggal_buat" ColumnName="tanggal_buat" />
                 <ScalarProperty Name="status" ColumnName="status" />
                 <ScalarProperty Name="keterangan" ColumnName="keterangan" />
                 <ScalarProperty Name="admin_idadmin" ColumnName="admin_idadmin" />
-                <ScalarProperty Name="jenis_artikel_idJenisArtikel" ColumnName="jenis_artikel_idJenisArtikel" />
+                <ScalarProperty Name="jenis_artikel_idjenis_artikel" ColumnName="jenis_artikel_idjenis_artikel" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="JenisArtikels">
-            <EntityTypeMapping TypeName="GISBWIModel.JenisArtikel">
-              <MappingFragment StoreEntitySet="JenisArtikel">
-                <ScalarProperty Name="idJenisArtikel" ColumnName="idJenisArtikel" />
+          <EntitySetMapping Name="customsettings">
+            <EntityTypeMapping TypeName="GISBWIModel.customsetting">
+              <MappingFragment StoreEntitySet="customsettings">
+                <ScalarProperty Name="idcustom_setting" ColumnName="idcustom_setting" />
+                <ScalarProperty Name="detilpeta_iddetilpeta" ColumnName="detilpeta_iddetilpeta" />
+                <ScalarProperty Name="columnname" ColumnName="columnname" />
+                <ScalarProperty Name="attribut_value" ColumnName="attribut_value" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="visible" ColumnName="visible" />
+                <ScalarProperty Name="idrow" ColumnName="idrow" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="departemen">
+            <EntityTypeMapping TypeName="GISBWIModel.departeman">
+              <MappingFragment StoreEntitySet="departemen">
+                <ScalarProperty Name="iddepartemen" ColumnName="iddepartemen" />
+                <ScalarProperty Name="nama" ColumnName="nama" />
+                <ScalarProperty Name="keterangan" ColumnName="keterangan" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="skpd_idskpd" ColumnName="skpd_idskpd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="detilpetas">
+            <EntityTypeMapping TypeName="GISBWIModel.detilpeta">
+              <MappingFragment StoreEntitySet="detilpeta">
+                <ScalarProperty Name="iddetilpeta" ColumnName="iddetilpeta" />
+                <ScalarProperty Name="konfigurasi_lain" ColumnName="konfigurasi_lain" />
+                <ScalarProperty Name="tooltip" ColumnName="tooltip" />
+                <ScalarProperty Name="peta_idpeta" ColumnName="peta_idpeta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="galeris">
+            <EntityTypeMapping TypeName="GISBWIModel.galeri">
+              <MappingFragment StoreEntitySet="galeri">
+                <ScalarProperty Name="idgaleri" ColumnName="idgaleri" />
+                <ScalarProperty Name="nama" ColumnName="nama" />
+                <ScalarProperty Name="tanggal" ColumnName="tanggal" />
+                <ScalarProperty Name="admin_idadmin" ColumnName="admin_idadmin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gambars">
+            <EntityTypeMapping TypeName="GISBWIModel.gambar">
+              <MappingFragment StoreEntitySet="gambar">
+                <ScalarProperty Name="idgambar" ColumnName="idgambar" />
+                <ScalarProperty Name="judul" ColumnName="judul" />
+                <ScalarProperty Name="alamat" ColumnName="alamat" />
+                <ScalarProperty Name="prioritas" ColumnName="prioritas" />
+                <ScalarProperty Name="tanggal_buat" ColumnName="tanggal_buat" />
+                <ScalarProperty Name="profile" ColumnName="profile" />
+                <ScalarProperty Name="galeri_idgaleri" ColumnName="galeri_idgaleri" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="jenis_artikel">
+            <EntityTypeMapping TypeName="GISBWIModel.jenis_artikel">
+              <MappingFragment StoreEntitySet="jenis_artikel">
+                <ScalarProperty Name="idjenis_artikel" ColumnName="idjenis_artikel" />
                 <ScalarProperty Name="nama" ColumnName="nama" />
                 <ScalarProperty Name="status" ColumnName="status" />
                 <ScalarProperty Name="keterangan" ColumnName="keterangan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="kategoris">
+            <EntityTypeMapping TypeName="GISBWIModel.kategori">
+              <MappingFragment StoreEntitySet="kategori">
+                <ScalarProperty Name="idkategori" ColumnName="idkategori" />
+                <ScalarProperty Name="nama_kategori" ColumnName="nama_kategori" />
+                <ScalarProperty Name="keterangan" ColumnName="keterangan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="petas">
+            <EntityTypeMapping TypeName="GISBWIModel.peta">
+              <MappingFragment StoreEntitySet="peta">
+                <ScalarProperty Name="idpeta" ColumnName="idpeta" />
+                <ScalarProperty Name="nama" ColumnName="nama" />
+                <ScalarProperty Name="lokasi" ColumnName="lokasi" />
+                <ScalarProperty Name="visible" ColumnName="visible" />
+                <ScalarProperty Name="datetime" ColumnName="datetime" />
+                <ScalarProperty Name="aktif" ColumnName="aktif" />
+                <ScalarProperty Name="departemen_iddepartemen" ColumnName="departemen_iddepartemen" />
+                <ScalarProperty Name="service_idservice" ColumnName="service_idservice" />
+                <ScalarProperty Name="kategori_idkategori" ColumnName="kategori_idkategori" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="privileges">
+            <EntityTypeMapping TypeName="GISBWIModel.privilege">
+              <MappingFragment StoreEntitySet="privilege">
+                <ScalarProperty Name="idprivilege" ColumnName="idprivilege" />
+                <ScalarProperty Name="nama" ColumnName="nama" />
+                <ScalarProperty Name="privilege1" ColumnName="privilege" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="services">
+            <EntityTypeMapping TypeName="GISBWIModel.service">
+              <MappingFragment StoreEntitySet="service">
+                <ScalarProperty Name="idservice" ColumnName="idservice" />
+                <ScalarProperty Name="nama" ColumnName="nama" />
+                <ScalarProperty Name="services" ColumnName="services" />
+                <ScalarProperty Name="admin_idadmin" ColumnName="admin_idadmin" />
+                <ScalarProperty Name="skpd_idskpd" ColumnName="skpd_idskpd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="skpds">
+            <EntityTypeMapping TypeName="GISBWIModel.skpd">
+              <MappingFragment StoreEntitySet="skpd">
+                <ScalarProperty Name="idskpd" ColumnName="idskpd" />
+                <ScalarProperty Name="nama" ColumnName="nama" />
+                <ScalarProperty Name="keterangan" ColumnName="keterangan" />
+                <ScalarProperty Name="alamat" ColumnName="alamat" />
+                <ScalarProperty Name="deskripsi" ColumnName="deskripsi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="subnavs">
+            <EntityTypeMapping TypeName="GISBWIModel.subnav">
+              <MappingFragment StoreEntitySet="subnav">
+                <ScalarProperty Name="idsubnav" ColumnName="idsubnav" />
+                <ScalarProperty Name="judul" ColumnName="judul" />
+                <ScalarProperty Name="isi" ColumnName="isi" />
+                <ScalarProperty Name="tanggal_buat" ColumnName="tanggal_buat" />
+                <ScalarProperty Name="keterangan" ColumnName="keterangan" />
+                <ScalarProperty Name="jenis_artikel_idjenis_artikel" ColumnName="jenis_artikel_idjenis_artikel" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
